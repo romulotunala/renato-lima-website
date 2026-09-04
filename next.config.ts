@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next';
 
-const repoName = 'nextforge'; // ajustar por projeto
+const repoName = 'renato-lima-website';
 
 const nextConfig: NextConfig = {
   output: 'export',
