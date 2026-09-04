@@ -27,7 +27,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  @include flex(column, center, center, nowrap, $spacing-6);
+  @include flex(column, $justify: center, $gap: $spacing-6);
 }
 
 .title {

@@ -38,7 +38,7 @@
 }
 
 .card {
-  @include flex(column, flex-start, flex-start, $spacing-4);
+  @include flex($direction: column, $justify: flex-start, $gap: $spacing-4);
 
   padding: $spacing-8;
   background-color: $color-bg-card;

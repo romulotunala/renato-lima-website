@@ -20,7 +20,7 @@
 
 .inner {
   @include container;
-  @include flex(row, center, space-between, nowrap, 0);
+  @include flex($justify: space-between);
 
   min-height: 5rem;
 }
@@ -45,7 +45,7 @@
 }
 
 .links {
-  @include flex(row, center, flex-start, nowrap, $spacing-8);
+  @include flex($gap: $spacing-8);
 }
 
 .links a {
@@ -106,7 +106,7 @@
 
 .mobileMenuContent {
   @include container;
-  @include flex(column, stretch, flex-start, nowrap, 0);
+  @include flex(column, stretch);
 
   padding-block: $spacing-2 $spacing-6;
 }

@@ -22,7 +22,7 @@
 .brand,
 .links,
 .contact {
-  @include flex(column, flex-start, flex-start, nowrap, $spacing-2);
+  @include flex(column, flex-start, $gap: $spacing-2);
 
   min-width: 180px;
 }
@@ -65,7 +65,7 @@
 }
 
 .links nav {
-  @include flex(column, flex-start, flex-start, nowrap, $spacing-2);
+  @include flex(column, flex-start, $gap: $spacing-2);
 }
 
 .links a,
@@ -83,7 +83,7 @@
 }
 
 .contact p {
-  @include flex(row, center, flex-start, nowrap, $spacing-2);
+  @include flex($gap: $spacing-2);
 
   font-size: $font-size-sm;
 }

@@ -10,7 +10,7 @@
   position: relative;
   z-index: 10;
 
-  @include flex(column, flex-start, flex-start, $gap: $spacing-12);
+  @include flex(column, flex-start, $gap: $spacing-12);
 
   align-items: center;
 
@@ -53,7 +53,7 @@
   color: $color-text;
 
   li {
-    @include flex(row, flex-start, flex-start, wrap, $spacing-3);
+    @include flex($align: flex-start, $flex-wrap: wrap, $gap: $spacing-3);
 
     color: $color-text;
     font-size: $font-size-lg;

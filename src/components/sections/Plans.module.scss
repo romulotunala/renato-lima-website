@@ -50,7 +50,7 @@
 }
 
 .card {
-  @include flex(column, flex-start, flex-start, $gap: $spacing-4);
+  @include flex(column, flex-start, $gap: $spacing-4);
 
   flex: 1 1 100%;
   padding: $spacing-7;
