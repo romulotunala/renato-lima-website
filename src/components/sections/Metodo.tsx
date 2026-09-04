@@ -5,7 +5,6 @@ import styles from './Metodo.module.scss';
 export function Metodo() {
   return (
     <section className={styles.metodo} id="metodo" aria-label="O Método">
-      {/* <div className={styles.container}> */}
       <div className={styles.content}>
         <h2 className={styles.title}>
           Você não recebe um treino. <br/>
@@ -69,7 +68,6 @@ export function Metodo() {
           className={styles.image}
         />
       </div>
-      {/* </div> */}
     </section>
   );
 }
