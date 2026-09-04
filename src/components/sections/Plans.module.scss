@@ -2,7 +2,7 @@
 @use '../../styles/abstracts/mixins' as *;
 
 .plans {
-  padding: 4rem 0;
+  padding-block: $spacing-24;
 }
 
 .container {
