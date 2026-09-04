@@ -29,13 +29,14 @@
   }
 }
 
-.overlayBase {
+%overlay-base {
   position: absolute;
   inset: 0;
 }
 
 .overlayVertical {
-  @extend .overlayBase;
+  @extend %overlay-base;
+
   background: linear-gradient(
     to top,
     rgba($color-bg, 1) 0%,
@@ -45,7 +46,8 @@
 }
 
 .overlayHorizontal {
-  @extend .overlayBase;
+  @extend %overlay-base;
+
   background: linear-gradient(
     to right,
     rgba($color-bg, 1) 0%,
