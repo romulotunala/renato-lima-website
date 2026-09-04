@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { assetPath } from '@/lib/assets';
 import styles from './Navbar.module.scss';
 
 export function Navbar() {
@@ -27,7 +28,7 @@ export function Navbar() {
       <div className={styles.inner}>
         <button type="button" className={styles.brand} onClick={() => window.scrollTo(0, 0)}>
           <Image
-            src="/images/logo_renato_white.png"
+            src={assetPath('/images/logo_renato_white.png')}
             alt="Renato Lima"
             width={220}
             height={56}

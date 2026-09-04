@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_FORMSPREE_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORMSPREE_ENDPOINT }}
+      NEXT_PUBLIC_BASE_URL: https://romulotunala.github.io/renato-lima-website
     steps:
       - uses: actions/checkout@v4
 
@@ -39,6 +40,24 @@ jobs:
       - run: pnpm test
 
       - run: pnpm build
+
+      - name: Validate exported assets
+        run: |
+          for asset in \
+            images/logo_renato_white.png \
+            images/photo-1534438327276-14e5300c3a48.avif \
+            images/img_renato_lima.png \
+            images/img_renato_aula.jpeg \
+            pin_drop_orange.svg \
+            event_busy_orange.svg \
+            trending_down_orange.svg \
+            nutrition_orange.svg \
+            sell_orange.svg \
+            mobile_orange.svg \
+            arrow_down.svg; do
+            test -f "out/$asset"
+            grep -q "/renato-lima-website/$asset" out/index.html
+          done
 
       - uses: actions/upload-pages-artifact@v3
         with:

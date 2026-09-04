@@ -5,6 +5,9 @@ const repoName = 'renato-lima-website';
 const nextConfig: NextConfig = {
   output: 'export',
   basePath: process.env.NODE_ENV === 'production' ? `/${repoName}` : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: process.env.NODE_ENV === 'production' ? `/${repoName}` : '',
+  },
   images: { unoptimized: true },
 };
 

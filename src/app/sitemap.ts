@@ -4,7 +4,8 @@ export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ?? 'https://exemplo.github.io/renato-lima-website';
+    process.env.NEXT_PUBLIC_BASE_URL
+    ?? 'https://romulotunala.github.io/renato-lima-website';
 
   return [
     {

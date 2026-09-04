@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { assetPath } from '@/lib/assets';
 import styles from './About.module.scss';
 
 export function About() {
@@ -13,19 +14,19 @@ export function About() {
   ];
   const benefits = [
     {
-      icon: '/nutrition_orange.svg',
+      icon: assetPath('/nutrition_orange.svg'),
       title: 'Integração Nutricional',
       description: 'Treino e dieta caminham juntos. Alinhamento com seu profissional ou indicação '
       + 'do nutricionista parceiro Henrique Nogueira.',
     },
     {
-      icon: '/sell_orange.svg',
+      icon: assetPath('/sell_orange.svg'),
       title: 'Parceria Probiótica',
       description: 'Alunos do Team Renato Lima possuem cupom exclusivo de 15% de desconto no site '
       + 'da Probiótica para otimizar suplementação.',
     },
     {
-      icon: '/mobile_orange.svg',
+      icon: assetPath('/mobile_orange.svg'),
       title: 'App MFIT Personal',
       description: 'Tecnologia ao seu favor. Acompanhe gráficos de evolução, vídeos de exercícios '
       + 'e metas diretamente no celular.',
@@ -34,7 +35,7 @@ export function About() {
 
 
   return (
-    <section id='sobre' className={styles.about} aria-label='Propósito do template'>
+    <section id='sobre' className={styles.about} aria-label='Sobre Renato Lima'>
       <div className={styles.container}>
         <div className={styles.content}>
           <h2 className={styles.title}>
@@ -53,7 +54,7 @@ export function About() {
 
         <div className={styles.content}>
           <Image
-            src="/images/img_renato_lima.png"
+            src={assetPath('/images/img_renato_lima.png')}
             alt="Renato Lima"
             width={520}
             height={520}

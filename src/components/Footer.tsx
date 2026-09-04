@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { assetPath } from '@/lib/assets';
 import styles from './Footer.module.scss';
 
 export function Footer() {
@@ -7,7 +8,7 @@ export function Footer() {
       <div className={styles.container}>
         <div className={styles.brand}>
           <Image
-            src="/images/logo_renato_white.png"
+            src={assetPath('/images/logo_renato_white.png')}
             alt="Renato Lima"
             width={220}
             height={56}
@@ -30,12 +31,12 @@ export function Footer() {
         <div className={styles.contact}>
           <h4>Atendimento</h4>
           <p>
-            <Image src="/pin_drop_orange.svg" alt="" width={20} height={20} />
+            <Image src={assetPath('/pin_drop_orange.svg')} alt="" width={20} height={20} />
             Campo Grande e Recreio - RJ
           </p>
           <p>
             <Image
-              src="/whatsapp.svg"
+              src={assetPath('/whatsapp.svg')}
               alt=""
               width={16}
               height={16}
@@ -44,7 +45,7 @@ export function Footer() {
           </p>
           <p>
             <Image
-              src="/instagram.svg"
+              src={assetPath('/instagram.svg')}
               alt=""
               width={16}
               height={16}

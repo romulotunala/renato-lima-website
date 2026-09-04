@@ -18,8 +18,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'nextforge',
-  description: 'Boilerplate para sites institucionais estáticos com Next.js.',
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL
+      ?? 'https://romulotunala.github.io/renato-lima-website',
+  ),
+  title: 'Renato Lima | Personal Trainer',
+  description:
+    'Treino personalizado, biomecânica e periodização científica para transformar seu corpo.',
 };
 
 export default function RootLayout({

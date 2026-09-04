@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import styles from './Faq.module.scss';
+import { assetPath } from '@/lib/assets';
 
 export function Faq() {
   const [activeFaqItem, setActiveFaqItem] = useState<number | null>(null);
@@ -88,7 +89,7 @@ export function Faq() {
                 }`}
                 aria-hidden="true"
               >
-                <img src="/arrow_down.svg" alt="" width={24} height={24} />
+                <img src={assetPath('/arrow_down.svg')} alt="" width={24} height={24} />
               </span>
             </button>
             {activeFaqItem === item.id && (

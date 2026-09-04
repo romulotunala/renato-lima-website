@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { assetPath } from '@/lib/assets';
 import styles from './Metodo.module.scss';
 
 export function Metodo() {
@@ -61,7 +62,7 @@ export function Metodo() {
       <div className={styles.imageWrap}>
         <div className={styles.imageGlow} aria-hidden="true" />
         <Image
-          src="/images/img_renato_aula.jpeg"
+          src={assetPath('/images/img_renato_aula.jpeg')}
           alt="Pessoa treinando com estratégia"
           width={720}
           height={500}

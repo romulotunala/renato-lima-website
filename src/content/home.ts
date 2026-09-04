@@ -1,3 +1,5 @@
+import { assetPath } from '../lib/assets';
+
 export const heroContent = {
   badgeLabel: 'Consultoria & Personal Premium',
   title: 'Resultado não vem do acaso.',
@@ -29,21 +31,21 @@ export const servicesContent = {
       description:
         'Você chega na academia sem saber direito por onde começar ou '
         + 'executa exercícios sem ter certeza de que está no caminho certo.',
-      icon: '/pin_drop_orange.svg',
+      icon: assetPath('/pin_drop_orange.svg'),
     },
     {
       title: 'Falta de Constância',
       description:
         'Já tentou começar várias vezes, mas a falta de acompanhamento e '
         + 'de motivação faz você parar na metade e voltar à estaca zero.',
-      icon: '/event_busy_orange.svg',
+      icon: assetPath('/event_busy_orange.svg'),
     },
     {
       title: 'Dores e Estagnação',
       description:
         'Treina há meses, mas convive com desconfortos articulares, postura '
         + 'incorreta e um corpo que parece não mudar no espelho.',
-      icon: '/trending_down_orange.svg',
+      icon: assetPath('/trending_down_orange.svg'),
     },
   ] satisfies readonly HomeServiceItem[],
 } as const;

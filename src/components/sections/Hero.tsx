@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
+import { assetPath } from '@/lib/assets';
 import { heroContent } from '@/content/home';
 import styles from './Hero.module.scss';
 
@@ -26,7 +27,7 @@ export function Hero({
     <section className={styles.hero} aria-label='Apresentação principal'>
       <div className={styles.bg} aria-hidden>
         <Image
-          src='/images/photo-1534438327276-14e5300c3a48.avif'
+          src={assetPath('/images/photo-1534438327276-14e5300c3a48.avif')}
           alt='Fundo Academia'
           fill
           priority
@@ -43,7 +44,7 @@ export function Hero({
             <div style={{ width: '16px', height: '16px', position: 'relative' }}>
 
               <Image
-                src='/images/logo-lightning.png'
+                src={assetPath('/images/logo-lightning.png')}
                 alt='Logo Lightning'
                 fill
                 style={{ objectFit: 'contain' }}
