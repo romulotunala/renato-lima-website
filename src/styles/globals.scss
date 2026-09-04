@@ -4,3 +4,6 @@
 
 @use 'base/reset';
 @use 'base/typography';
+
+/* Ensure main content clears the fixed navbar (approx 5rem) */
+main { padding-top: 5rem; }

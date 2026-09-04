@@ -1,0 +1,174 @@
+@use '../styles/abstracts/variables' as *;
+@use '../styles/abstracts/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba($color-bg, 0.8);
+  border-bottom: 1px solid rgba($color-text, 0.05);
+  backdrop-filter: blur(12px);
+  transition: box-shadow $transition-base, background-color $transition-base;
+}
+
+.scrolled {
+  box-shadow: $shadow-lg;
+  background: rgba($color-bg, 0.95);
+}
+
+.inner {
+  @include container;
+  @include flex(row, center, space-between, nowrap, 0);
+
+  min-height: 5rem;
+}
+
+.brand {
+  display: block;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.logoImg {
+  display: block;
+  width: auto;
+  height: 3.5rem;
+  max-width: 13.75rem;
+}
+
+.links {
+  @include flex(row, center, flex-start, nowrap, $spacing-8);
+}
+
+.links a {
+  color: rgba($color-text, 0.8);
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.cta {
+  padding: $spacing-2 $spacing-6;
+  color: $color-text !important;
+  background: linear-gradient(to right, $color-secondary, $color-accent-red);
+  border-radius: $border-radius-full;
+  font-weight: $font-weight-bold !important;
+  text-transform: uppercase;
+  transition: box-shadow $transition-base, transform $transition-base;
+
+  &:hover {
+    color: $color-text !important;
+    box-shadow: 0 0 15px rgba($color-secondary, 0.5);
+    transform: translateY(-2px);
+  }
+}
+
+.mobileBtn {
+  display: none;
+  padding: $spacing-2;
+  color: rgba($color-text, 0.8);
+  background: transparent;
+  border: 0;
+  font-size: $font-size-2xl;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-text;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.mobilePanel {
+  display: none;
+  background: $color-bg-card;
+  border-bottom: 1px solid $color-border;
+}
+
+.mobileMenuContent {
+  @include container;
+  @include flex(column, stretch, flex-start, nowrap, 0);
+  padding-block: $spacing-2 $spacing-6;
+}
+
+.mobileMenuContent a {
+  padding: $spacing-3;
+  color: rgba($color-text, 0.8);
+  border-bottom: 1px solid $color-border;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.mobileCta {
+  margin-top: $spacing-4;
+  color: $color-text !important;
+  background: linear-gradient(to right, $color-secondary, $color-accent-red);
+  border: 0 !important;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm !important;
+  font-weight: $font-weight-bold !important;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@include respond-to(md) {
+  .mobilePanel {
+    display: none !important;
+  }
+}
+
+@media (max-width: #{$bp-md - 1px}) {
+  .links {
+    display: none;
+  }
+
+  .mobileBtn {
+    display: block;
+  }
+
+  .mobilePanel {
+    display: none;
+  }
+
+  .mobilePanel.open {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .cta,
+  .mobilePanel,
+  .links a,
+  .mobileMenuContent a {
+    transition: none;
+  }
+}
