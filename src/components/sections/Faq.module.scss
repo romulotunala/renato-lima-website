@@ -1,0 +1,91 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.faq {
+  @include container;
+  padding-block: $spacing-24;
+}
+
+.title {
+  @include section-title-base;
+
+  font-size: clamp(2.6rem, 5.2vw, 3rem);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.highlightTitle {
+  @include section-title-highlight-base;
+}
+
+.subtitle {
+  @include section-subtitle-base;
+
+  text-align: center;
+}
+
+.faqList {
+  @include flex(column, stretch, flex-start, nowrap, $spacing-4);
+
+  list-style: none;
+  padding: 0;
+  margin: $spacing-12 0 0;
+}
+
+.faqItem {
+  overflow: hidden;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+}
+
+.question {
+  @include flex(row, center, space-between, nowrap, $spacing-4);
+
+  width: 100%;
+  padding: $spacing-6;
+  color: $color-text;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  text-align: left;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.indicator {
+  flex-shrink: 0;
+  color: $color-secondary;
+  font-size: $font-size-xl;
+  line-height: 1;
+  transition: transform $transition-base;
+}
+
+.indicatorOpen {
+  transform: rotate(180deg);
+}
+
+.answer {
+  padding: $spacing-6;
+  color: $color-text-muted;
+  border-top: 1px solid rgba($color-border, 0.5);
+  font-size: $font-size-sm;
+  line-height: $line-height-base;
+
+  p {
+    margin: $spacing-1;
+  }
+
+  strong {
+    font-weight: $font-weight-bold;
+  }
+}

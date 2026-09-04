@@ -1,0 +1,58 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.cta {
+  @include container;
+  padding-block: $spacing-24;
+
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    $color-secondary,
+    $color-accent-red
+  );
+}
+
+.backgroundShape {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background: $color-text;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+.content {
+  max-width: $bp-md;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  @include flex(column, center, center, nowrap, $spacing-6);
+}
+
+.title {
+  @include section-title-base;
+
+  font-size: clamp(2.6rem, 5.2vw, 3rem);
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.lead {
+  margin-bottom: 1rem;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-base;
+
+  text-align: center;
+}
+.button {
+  display: inline-block;
+  background: #0f1724;
+  color: white;
+  padding: $spacing-5 $spacing-10;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,153 @@
+@use '../styles/abstracts/variables' as *;
+@use '../styles/abstracts/mixins' as *;
+
+.footer {
+  padding: $spacing-16 0 $spacing-8;
+  color: $color-text-muted;
+  background: $color-bg;
+  border-top: 1px solid $color-border;
+}
+
+.container {
+  @include container;
+  @include grid(1, $spacing-8);
+}
+
+@include respond-to(md) {
+  .container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.brand,
+.links,
+.contact {
+  @include flex(column, flex-start, flex-start, nowrap, $spacing-2);
+
+  min-width: 180px;
+}
+
+.brand {
+  flex: 1.2;
+}
+
+.logo {
+  width: 220px;
+  height: auto;
+  margin-bottom: $spacing-2;
+}
+
+.brand p,
+.contact p,
+.legal p {
+  margin: 0;
+}
+
+.brand p {
+  font-size: $font-size-sm;
+}
+
+.cref {
+  font-weight: $font-weight-bold;
+}
+
+.links,
+.contact {
+  flex: 1;
+}
+
+.links h4,
+.contact h4 {
+  margin: 0 0 $spacing-2;
+  color: $color-text;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+}
+
+.links nav {
+  @include flex(column, flex-start, flex-start, nowrap, $spacing-2);
+}
+
+.links a,
+.contact a {
+  color: $color-text-muted;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.contact p {
+  @include flex(row, center, flex-start, nowrap, $spacing-2);
+
+  font-size: $font-size-sm;
+}
+
+.contactIcon {
+  display: inline-flex;
+  width: 20px;
+  justify-content: center;
+  color: $color-secondary;
+  font-size: $font-size-lg;
+}
+
+.legal {
+  @include container;
+  @include flex(row, flex-start, space-between, wrap, $spacing-4);
+
+  margin-top: $spacing-12;
+  padding-top: $spacing-8;
+  color: $color-text-muted;
+  border-top: 1px solid $color-border;
+  font-size: $font-size-xs;
+  line-height: $line-height-base;
+}
+
+.legalNotice {
+  flex: 1 1 24rem;
+}
+
+.credits {
+  flex: 0 1 auto;
+  text-align: right;
+}
+
+.credits p + p {
+  margin-top: $spacing-1;
+}
+
+.credits strong {
+  color: $color-text-muted;
+}
+
+@media (max-width: #{$bp-md - 1px}) {
+  .container,
+  .legal {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .brand,
+  .links,
+  .contact {
+    align-items: center;
+  }
+
+  .links nav {
+    align-items: center;
+  }
+
+  .contact p {
+    justify-content: center;
+  }
+
+  .credits {
+    text-align: center;
+  }
+}

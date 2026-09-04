@@ -2,17 +2,25 @@
 @use '../../styles/abstracts/mixins' as *;
 
 .services {
-  padding-block: $spacing-24;
-  background-color: $color-bg-alt;
-}
-
-.container {
   @include container;
+  padding-block: $spacing-24;
 }
 
 .title {
+  @include section-title-base;
+
   text-align: center;
-  margin-bottom: $spacing-16;
+  font-size: clamp(2.6rem, 5.2vw, 3rem);
+  text-transform: uppercase;
+}
+.highlightTitle {
+  @include section-title-highlight-base;
+}
+
+.subtitle {
+  @include section-subtitle-base;
+
+  text-align: center;
 }
 
 .grid {
@@ -31,21 +39,26 @@
   @include flex(column, flex-start, flex-start, $spacing-4);
 
   padding: $spacing-8;
-  background-color: $color-bg;
+  background-color: $color-bg-card;
   border-radius: $border-radius-lg;
-  border: 1px solid $color-border;
-  box-shadow: $shadow-sm;
-  transition: box-shadow $transition-base, transform $transition-base;
+  border: .5px solid $color-border;
+  transition: border-color $transition-base, transform $transition-base;
 
   &:hover {
-    box-shadow: $shadow-lg;
-    transform: translateY(-2px);
+    border-color: $color-secondary;
+
+    .icon {
+      transform: scale(1.1);
+    }
   }
 }
 
 .icon {
   font-size: 2.5rem;
   line-height: 1;
+  background: $color-bg;
+  padding: 12px;
+  border-radius: $border-radius-full;
 }
 
 .cardTitle {
@@ -58,4 +71,17 @@
   color: $color-text-muted;
   line-height: $line-height-base;
   margin-bottom: 0;
+}
+
+.text {
+  text-align: center;
+  margin-top: $spacing-16;
+  color: $color-text;
+  font-size: clamp(1.25rem, 1.4vw, 4rem);
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+
+.highlightText {
+  color: $color-secondary;
 }

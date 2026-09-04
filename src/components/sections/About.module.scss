@@ -3,21 +3,42 @@
 
 .about {
   padding-block: $spacing-24;
-  background-color: $color-bg;
+}
+.container {
+  @include grid(1, $spacing-12);
+  align-items: center;
 }
 
-.container {
-  @include container;
-  @include grid(1, $spacing-16);
-
-  @include respond-to(lg) {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+@include respond-to(lg) {
+  .container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+.content {
+  margin: 0 auto;
+  padding: 0 $spacing-6;
+}
+
 .title {
-  margin-bottom: $spacing-6;
+  @include section-title-base;
+
+  font-size: clamp(2.6rem, 5.2vw, 3rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+}
+h3.title {
+  margin: $spacing-6 0;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+
+.highlightTitle {
+  color: $color-secondary;
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-base;
+  line-height: 2.2;
 }
 
 .description {
@@ -27,31 +48,67 @@
   margin-bottom: $spacing-6;
 }
 
-.highlights {
-  @include flex(column, flex-start, flex-start, $spacing-3);
+.note {
+  border-left: 4px solid $color-secondary;
+  padding: $spacing-4;
 
-  list-style: disc;
-  padding-left: $spacing-6;
+  color: $color-text;
+  font-style: italic;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-base;
+  font-size: $font-size-lg;
+}
 
-  li {
-    color: $color-text;
+.image {
+  height:auto;
+  border-radius: $border-radius-lg;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-md;
+}
+
+
+.containerBenefits {
+  gap: $spacing-6;
+  margin-top: $spacing-12;
+}
+
+.benefitsList {
+  @include grid(1, $spacing-6);
+
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+@include respond-to(md) {
+  .benefitsList {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.note {
-  background-color: $color-bg-alt;
-  border: 1px solid $color-border;
-  border-radius: $border-radius-lg;
-  padding: $spacing-8;
-  box-shadow: $shadow-sm;
+.benefitCard {
+  @include flex(column, center, center, $gap: $spacing-4);
 
-  h3 {
-    margin-bottom: $spacing-4;
-    font-size: $font-size-xl;
-  }
+  padding: 0 $spacing-6;
+}
 
-  p {
-    color: $color-text-muted;
-    margin-bottom: 0;
-  }
+.icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  background: $color-bg;
+  padding: $spacing-1;
+  border-radius: $border-radius-full;
+}
+
+.benefitTitle {
+  text-align: center;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+}
+.benefitDescription {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: $line-height-base;
+  margin-bottom: 0;
+  text-align: center;
 }

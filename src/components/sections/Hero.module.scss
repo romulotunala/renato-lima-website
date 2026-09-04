@@ -2,40 +2,148 @@
 @use '../../styles/abstracts/mixins' as *;
 
 .hero {
+  position: relative;
   min-height: 90vh;
-  @include flex(column, center, center);
-
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   padding-block: $spacing-24;
   background: linear-gradient(135deg, $color-bg 0%, $color-bg-alt 100%);
 }
 
-.container {
-  @include container;
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 
-  max-width: 800px;
-}
-
-.title {
-  font-size: $font-size-5xl;
-  font-weight: $font-weight-bold;
-  line-height: $line-height-tight;
-  margin-bottom: $spacing-6;
-
-  @include respond-to(md) {
-    font-size: $font-size-5xl;
+  img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-position: center;
+    object-fit: cover;
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+    filter: grayscale(100%);
   }
 }
 
+.overlayBase {
+  position: absolute;
+  inset: 0;
+}
+
+.overlayVertical {
+  @extend .overlayBase;
+  background: linear-gradient(
+    to top,
+    rgba($color-bg, 1) 0%,
+    rgba($color-bg, 0.8) 50%,
+    rgba($color-bg, 0) 100%
+  );
+}
+
+.overlayHorizontal {
+  @extend .overlayBase;
+  background: linear-gradient(
+    to right,
+    rgba($color-bg, 1) 0%,
+    rgba($color-bg, 0.5) 50%,
+    rgba($color-bg, 0) 100%
+  );
+}
+
+
+.container {
+  @include container;
+
+  position: relative;
+  z-index: 10;
+}
+
+.content {
+  max-width: 760px;
+  text-align: left;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: flex-start;
+  align-items: center;
+  gap: $spacing-2;
+  padding: $spacing-1 $spacing-4;
+  margin-bottom: $spacing-6;
+  border: 1px solid rgb(249 115 22 / 30%);
+  border-radius: $border-radius-full;
+  background: rgb(39 39 42 / 55%);
+  color: $color-secondary;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+}
+
+.title {
+  @include section-title-base;
+
+  font-size: clamp(2.6rem, 5.2vw, 5.2rem);
+  text-shadow: 0 10px 35px rgb(0 0 0 / 25%);
+
+  @media (min-width: $bp-xl) {
+    font-size: clamp(2.6rem, 5.2vw, 4.8rem);
+  }
+}
+
+.highlightTitle {
+  @include section-title-highlight-base;
+}
+
 .subtitle {
-  font-size: $font-size-xl;
-  color: $color-text-muted;
-  margin-bottom: $spacing-10;
-  line-height: $line-height-base;
+  @include section-subtitle-base;
+
+  max-width: 42rem;
 }
 
 .actions {
-  @include flex(row, center, center, $spacing-4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-4;
 
-  flex-wrap: wrap;
+  @include respond-to(sm) {
+    flex-direction: row;
+  }
+}
+
+.primaryAction {
+  border: 1px solid transparent;
+  border-radius: $border-radius-md;
+  background: linear-gradient(135deg, $color-secondary 0%, $color-accent-red 100%);
+  color: #fff;
+  box-shadow: 0 0 24px rgb(249 115 22 / 25%);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgb(249 115 22 / 40%);
+  }
+}
+
+.secondaryAction {
+  border: 1px solid rgb(161 161 170 / 60%);
+  border-radius: $border-radius-md;
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  &:hover:not(:disabled) {
+    color: $color-secondary;
+    border-color: $color-secondary;
+    background: rgb(249 115 22 / 10%);
+  }
 }
