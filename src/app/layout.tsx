@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL
-      ?? 'https://romulotunala.github.io/renato-lima-website',
+      ?? 'https://personalrenatolima.com.br',
   ),
   title: 'Renato Lima | Personal Trainer',
   description:

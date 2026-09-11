@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_FORMSPREE_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORMSPREE_ENDPOINT }}
-      NEXT_PUBLIC_BASE_URL: https://romulotunala.github.io/renato-lima-website
+      NEXT_PUBLIC_BASE_URL: https://personalrenatolima.com.br
     steps:
       - uses: actions/checkout@v4
 
@@ -56,7 +56,7 @@ jobs:
             mobile_orange.svg \
             arrow_down.svg; do
             test -f "out/$asset"
-            grep -q "/renato-lima-website/$asset" out/index.html
+            grep -q "/$asset" out/index.html
           done
 
       - uses: actions/upload-pages-artifact@v3
