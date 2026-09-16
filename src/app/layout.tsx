@@ -25,6 +25,22 @@ export const metadata: Metadata = {
   title: 'Renato Lima | Personal Trainer',
   description:
     'Treino personalizado, biomecânica e periodização científica para transformar seu corpo.',
+  openGraph: {
+    title: 'Renato Lima | Personal Trainer',
+    description:
+      'Treino personalizado, biomecânica e periodização científica para transformar seu corpo.',
+    url: process.env.NEXT_PUBLIC_BASE_URL ?? 'https://personalrenatolima.com.br',
+    siteName: 'Renato Lima | Personal Trainer',
+    images: [
+      {
+        url: '/images/logo-og.webp',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'pt-BR',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
