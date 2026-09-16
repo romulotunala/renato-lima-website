@@ -1,3 +1,4 @@
+import { buildPlanWhatsAppLink } from '@/lib/whatsapp';
 import { Bullet } from '../Bullet';
 import styles from './Plans.module.scss';
 
@@ -113,13 +114,18 @@ export function Plans() {
                   </li>
                 ))}
               </ul>
-              <button
+              <a
+                href={buildPlanWhatsAppLink(plan.title)}
                 className={[styles.cardButton, getButtonHighlightClassName(plan.flag)]
                   .filter(Boolean)
                   .join(' ')
                 }
-                type='button'
-              >{plan.buttonText}</button>
+                target='_blank'
+                rel='noreferrer'
+                aria-label={`Consultar plano ${plan.title}`}
+              >
+                {plan.buttonText}
+              </a>
             </li>
           ))}
         </ul>

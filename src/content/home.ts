@@ -1,3 +1,4 @@
+import { buildWhatsAppLink } from '@/lib/whatsapp';
 import { assetPath } from '../lib/assets';
 
 export const heroContent = {
@@ -8,13 +9,8 @@ export const heroContent = {
     'Treino personalizado, biomecânica e periodização científica '
     + 'para você transformar seu corpo com segurança, constância e sem perder tempo.',
   primaryCtaLabel: 'Iniciar Transformação',
-  // build WhatsApp link in multiple lines to satisfy max-len lint rule
-  primaryCtaHref: (() => {
-    const base = 'https://wa.me/5521991425161';
-    const message = 'Olá, Renato! Vim pelo site e gostaria de iniciar '
-      + 'minha transformação.';
-    return `${base}?text=${encodeURIComponent(message)}`;
-  })(),
+  primaryCtaHref: buildWhatsAppLink('Olá, Renato! Vim pelo site e gostaria de iniciar minha  '
+    + 'transformação.'),
   secondaryCtaLabel: 'Conhecer os planos',
 } as const;
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
+import { buildWhatsAppLink } from '@/lib/whatsapp';
 import styles from './Navbar.module.scss';
 
 export function Navbar() {
@@ -43,7 +44,7 @@ export function Navbar() {
           <Link href="#sobre">Sobre</Link>
           <Link href="#faq">FAQ</Link>
           <a
-            href="https://wa.me/5521991425161"
+            href={buildWhatsAppLink()}
             target="_blank"
             rel="noreferrer"
             className={styles.cta}
@@ -75,7 +76,7 @@ export function Navbar() {
           <Link href="#sobre" onClick={() => setOpen(false)}>Sobre</Link>
           <Link href="#faq" onClick={() => setOpen(false)}>FAQ</Link>
           <a
-            href="https://wa.me/5521991425161"
+            href={buildWhatsAppLink()}
             target="_blank"
             rel="noreferrer"
             className={styles.mobileCta}

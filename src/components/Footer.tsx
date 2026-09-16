@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
+import { buildWhatsAppLink } from '@/lib/whatsapp';
 import styles from './Footer.module.scss';
 
 export function Footer() {
@@ -41,7 +42,7 @@ export function Footer() {
               width={16}
               height={16}
             />
-            <a href="https://wa.me/5521991425161">(21) 99142-5161</a>
+            <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer">(21) 99142-5161</a>
           </p>
           <p>
             <Image
