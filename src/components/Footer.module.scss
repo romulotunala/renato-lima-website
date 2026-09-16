@@ -88,14 +88,6 @@
   font-size: $font-size-sm;
 }
 
-.contactIcon {
-  display: inline-flex;
-  width: 20px;
-  justify-content: center;
-  color: $color-secondary;
-  font-size: $font-size-lg;
-}
-
 .legal {
   @include container;
   @include flex(row, flex-start, space-between, wrap, $spacing-4);
