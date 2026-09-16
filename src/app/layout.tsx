@@ -17,11 +17,11 @@ const inter = Inter({
   weight: ['300', '400', '500', '600'],
 });
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL ?? 'https://personalrenatolima.com.br';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL
-      ?? 'https://personalrenatolima.com.br',
-  ),
+  metadataBase: new URL(baseUrl),
   title: 'Renato Lima | Personal Trainer',
   description:
     'Treino personalizado, biomecânica e periodização científica para transformar seu corpo.',
@@ -29,17 +29,26 @@ export const metadata: Metadata = {
     title: 'Renato Lima | Personal Trainer',
     description:
       'Treino personalizado, biomecânica e periodização científica para transformar seu corpo.',
-    url: process.env.NEXT_PUBLIC_BASE_URL ?? 'https://personalrenatolima.com.br',
+    url: baseUrl,
     siteName: 'Renato Lima | Personal Trainer',
     images: [
       {
-        url: '/images/logo-og.webp',
+        url: '/images/logo-og.png',
         width: 1200,
         height: 630,
+        type: 'image/png',
+        alt: 'Renato Lima | Personal Trainer',
       },
     ],
-    locale: 'pt-BR',
+    locale: 'pt_BR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Renato Lima | Personal Trainer',
+    description:
+      'Treino personalizado, biomecânica e periodização científica para transformar seu corpo.',
+    images: ['/images/logo-og.png'],
   },
 };
 
