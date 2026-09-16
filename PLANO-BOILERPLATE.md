@@ -24,7 +24,6 @@ institucionais/empresariais, com deploy automatizado no GitHub Pages.
 | Git hooks | Husky + lint-staged + commitlint (Conventional Commits) | qualidade não depende de disciplina manual |
 | Testes unitários | Vitest + Testing Library | rápido, API compatível com Jest, zero config extra p/ TS |
 | Testes e2e/smoke | Playwright | valida o HTML estático gerado (`out/`) |
-| Formulários | react-hook-form + zod | padrão de fato para forms tipados e performáticos |
 | Ícones | lucide-react | tree-shakeable, SVG puro |
 | Animação (opcional) | Motion (ex-Framer Motion) | scroll reveals, transições de seção |
 | Fontes | `next/font` | auto-hospedagem, sem requisição externa, melhora LCP/CLS |
@@ -221,14 +220,12 @@ Peça uma fase de cada vez ao Copilot/Claude Code; não peça tudo de uma vez.
    `src/styles/base` (reset + tipografia), `globals.scss` importando os parciais; criar um
    componente de exemplo (`Button`) com `Button.module.scss` demonstrando o padrão.
 6. **Estrutura de conteúdo institucional** — criar seções de exemplo em
-   `src/components/sections` (Hero, About, Services, Contact) usando App Router.
-7. **Formulário de contato** — implementar com react-hook-form + zod, validação client-side,
-   sem submissão real (deixar `TODO` para integração futura com endpoint/serviço de email).
-8. **Testes** — configurar Vitest + Testing Library com 1-2 testes de exemplo (ex: Button,
-   validação do formulário); configurar Playwright com 1 smoke test na home gerada em `out/`.
-9. **CI/CD** — criar `.github/workflows/deploy.yml` conforme acima; habilitar GitHub Pages
+   `src/components/sections` (Hero, About, Services) usando App Router.
+7. **Testes** — configurar Vitest + Testing Library com 1-2 testes de exemplo (ex: Button,
+   componentes de UI); configurar Playwright com 1 smoke test na home gerada em `out/`.
+8. **CI/CD** — criar `.github/workflows/deploy.yml` conforme acima; habilitar GitHub Pages
    com source "GitHub Actions" nas configurações do repo.
-10. **Documentação** — `README.md` explicando como usar o template (`Use this template`),
+9. **Documentação** — `README.md` explicando como usar o template (`Use this template`),
     scripts disponíveis, como customizar `basePath`/`repoName`, e um `CONTRIBUTING.md` curto.
 
 ## 6. Checklist de aceite
