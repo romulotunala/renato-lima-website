@@ -26,11 +26,10 @@ sem precisar montar estrutura, lint, testes e deploy do zero em todo projeto nov
 | Área | Inclui |
 |---|---|
 | App | Next.js 16 + App Router + `output: 'export'` |
-| UI | Seções institucionais base (`Hero`, `About`, `Services`, `Contact`) |
+| UI | Seções institucionais base (`Hero`, `About`, `Services`) |
 | Estilo | SCSS + CSS Modules + tokens e mixins globais |
 | Qualidade | ESLint 9, Stylelint, Husky, lint-staged, commitlint |
 | Testes | Vitest + Testing Library + Playwright |
-| Formulário | react-hook-form + zod + integração opcional com Formspree |
 | Deploy | GitHub Actions + GitHub Pages |
 
 ## Ideal para / Não ideal para
@@ -102,20 +101,6 @@ Os arquivos abaixo concentram quase tudo que costuma mudar de um projeto para ou
 - `next.config.ts`: `repoName` e comportamento de export estático
 - `src/styles/abstracts/_variables.scss`: tokens visuais
 - `src/components/sections/*`: estrutura e composição das seções
-
-## Formulário de contato
-
-O formulário funciona em **modo demo** por padrão. Para ativar envio real com Formspree:
-
-1. Crie um formulário em https://formspree.io
-2. Copie o endpoint fornecido no painel
-3. Crie um arquivo `.env.local` com:
-
-```bash
-NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxxabcd
-```
-
-Sem essa variável, o componente informa visualmente que o envio real não está ativo.
 
 ## Estrutura do projeto
 

@@ -6,7 +6,6 @@ import { Plans } from '@/components/sections/Plans';
 // import { SocialFeed } from '@/components/sections/SocialFeed';
 import { Faq } from '@/components/sections/Faq';
 import { Cta } from '@/components/sections/Cta';
-// import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
       <About />
       <Faq />
       <Cta />
-      {/* <Contact /> */}
       <Footer />
     </>
   );
