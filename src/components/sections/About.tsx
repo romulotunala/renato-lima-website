@@ -3,38 +3,38 @@ import { assetPath } from '@/lib/assets';
 import { CREF } from '@/lib/site';
 import styles from './About.module.scss';
 
+const DESCRIPTIONS = [
+  `Sou Profissional de Educação Física (${CREF}), pós-graduado em Biomecânica e `
+  + 'Periodização do Treinamento e cursando MBA em Gestão Fitness.',
+  'Minha trajetória no esporte começou no futebol de base (America FC, CAAC Brasil, '
+  + 'Taça das Favelas) e se consolidou na preparação física e musculação de alta performance, '
+  + 'passando por grandes redes do Rio de Janeiro.',
+  'Atualmente, sou Presidente da Comissão Voluntária de Musculação e Alta Performance Regional '
+  + 'Campo Grande do CREF 1 – Zona Oeste e palestrante em cursos de capacitação técnica.',
+];
+
+const BENEFITS = [
+  {
+    icon: assetPath('/nutrition_orange.svg'),
+    title: 'Integração Nutricional',
+    description: 'Treino e dieta caminham juntos. Alinhamento com seu profissional ou indicação '
+    + 'do nutricionista parceiro Henrique Nogueira.',
+  },
+  {
+    icon: assetPath('/sell_orange.svg'),
+    title: 'Parceria Probiótica',
+    description: 'Alunos do Team Renato Lima possuem cupom exclusivo de 15% de desconto no site '
+    + 'da Probiótica para otimizar suplementação.',
+  },
+  {
+    icon: assetPath('/mobile_orange.svg'),
+    title: 'App MFIT Personal',
+    description: 'Tecnologia ao seu favor. Acompanhe gráficos de evolução, vídeos de exercícios '
+    + 'e metas diretamente no celular.',
+  },
+];
+
 export function About() {
-  const descriptions = [
-    `Sou Profissional de Educação Física (${CREF}), pós-graduado em Biomecânica e `
-    + 'Periodização do Treinamento e cursando MBA em Gestão Fitness.',
-    'Minha trajetória no esporte começou no futebol de base (America FC, CAAC Brasil, '
-    + 'Taça das Favelas) e se consolidou na preparação física e musculação de alta performance, '
-    + 'passando por grandes redes do Rio de Janeiro.',
-    'Atualmente, sou Presidente da Comissão Voluntária de Musculação e Alta Performance Regional '
-    + 'Campo Grande do CREF 1 – Zona Oeste e palestrante em cursos de capacitação técnica.',
-  ];
-  const benefits = [
-    {
-      icon: assetPath('/nutrition_orange.svg'),
-      title: 'Integração Nutricional',
-      description: 'Treino e dieta caminham juntos. Alinhamento com seu profissional ou indicação '
-      + 'do nutricionista parceiro Henrique Nogueira.',
-    },
-    {
-      icon: assetPath('/sell_orange.svg'),
-      title: 'Parceria Probiótica',
-      description: 'Alunos do Team Renato Lima possuem cupom exclusivo de 15% de desconto no site '
-      + 'da Probiótica para otimizar suplementação.',
-    },
-    {
-      icon: assetPath('/mobile_orange.svg'),
-      title: 'App MFIT Personal',
-      description: 'Tecnologia ao seu favor. Acompanhe gráficos de evolução, vídeos de exercícios '
-      + 'e metas diretamente no celular.',
-    },
-  ];
-
-
   return (
     <section id='sobre' className={styles.about} aria-label='Sobre Renato Lima'>
       <div className={styles.container}>
@@ -42,7 +42,7 @@ export function About() {
           <h2 className={styles.title}>
             <span className={styles.highlightTitle}>Muito prazer, sou</span> <br/> Renato Lima
           </h2>
-          {descriptions.map((description) => (
+          {DESCRIPTIONS.map((description) => (
             <p key={description} className={styles.description}>{description}</p>
           ))}
 
@@ -68,7 +68,7 @@ export function About() {
           Um ecossistema completo
         </h3>
         <ul className={styles.benefitsList}>
-          {benefits.map((benefit) => (
+          {BENEFITS.map((benefit) => (
             <li key={benefit.title} className={styles.benefitCard}>
               <span className={styles.icon} aria-hidden='true'>
                 <img src={benefit.icon} alt='' width={40} height={40} />

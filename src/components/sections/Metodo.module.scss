@@ -62,19 +62,6 @@
   }
 }
 
-.bullet {
-  width: $spacing-5;
-  height: $spacing-5;
-  margin-top: 0.125rem;
-  border-radius: $border-radius-full;
-  background: $color-secondary;
-  color: $color-bg;
-  font-weight: $font-weight-bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .listItemText {
   color: $color-text-muted;
   font-size: $font-size-sm;

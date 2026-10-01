@@ -1,6 +1,34 @@
 import Image from 'next/image';
+import { Bullet } from '@/components/Bullet';
 import { assetPath } from '@/lib/assets';
 import styles from './Metodo.module.scss';
+
+const PILLARS = [
+  {
+    title: 'Avaliação Individual & Biomecânica',
+    description:
+      'Análise física, postural e funcional para identificar limitações, corrigir falhas e '
+      + 'evitar lesões antes mesmo de pegar o primeiro peso.',
+  },
+  {
+    title: 'Periodização Científica',
+    description:
+      'Treinos estruturados em blocos progressivos (mesociclos) com controle rigoroso de carga, '
+      + 'volume e descanso de forma inteligente.',
+  },
+  {
+    title: 'Ajustes em Tempo Real',
+    description:
+      'Acompanhamento dinâmico que evolui junto com a sua resposta aos treinos. O planejamento '
+      + 'não é estático.',
+  },
+  {
+    title: 'Tecnologia App MFIT',
+    description:
+      'Acesso fácil aos treinos, vídeos explicativos de cada movimento, registro de cargas e '
+      + 'histórico de evolução na palma da mão.',
+  },
+] as const;
 
 export function Metodo() {
   return (
@@ -15,46 +43,13 @@ export function Metodo() {
           acompanhado e ajustado no tempo certo. Conheça os pilares do meu acompanhamento:
         </p>
         <ul className={styles.list}>
-          <li>
-            <span className={styles.bullet} aria-hidden="true">
-              ✓
-            </span>
-            <span>Avaliação Individual & Biomecânica</span>
-            <span className={styles.listItemText}>
-              Análise física, postural e funcional para identificar limitações, corrigir{' '}
-              falhas e evitar lesões antes mesmo de pegar o primeiro peso.
-            </span>
-          </li>
-          <li>
-            <span className={styles.bullet} aria-hidden="true">
-              ✓
-            </span>
-            <span>Periodização Científica</span>
-            <span className={styles.listItemText}>
-              Treinos estruturados em blocos progressivos (mesociclos) com controle rigoroso{' '}
-              de carga, volume e descanso de forma inteligente.
-            </span>
-          </li>
-          <li>
-            <span className={styles.bullet} aria-hidden="true">
-              ✓
-            </span>
-            <span>Ajustes em Tempo Real</span>
-            <span className={styles.listItemText}>
-              Acompanhamento dinâmico que evolui junto com a sua resposta aos treinos. O{' '}
-              planejamento não é estático.
-            </span>
-          </li>
-          <li>
-            <span className={styles.bullet} aria-hidden="true">
-              ✓
-            </span>
-            <span>Tecnologia App MFIT</span>
-            <span className={styles.listItemText}>
-              Acesso fácil aos treinos, vídeos explicativos de cada movimento, registro de{' '}
-              cargas e histórico de evolução na palma da mão.
-            </span>
-          </li>
+          {PILLARS.map((pillar) => (
+            <li key={pillar.title}>
+              <Bullet />
+              <span>{pillar.title}</span>
+              <span className={styles.listItemText}>{pillar.description}</span>
+            </li>
+          ))}
         </ul>
       </div>
 

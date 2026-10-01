@@ -1,5 +1,5 @@
 import { buildPlanWhatsAppLink } from '@/lib/whatsapp';
-import { Bullet } from '../Bullet';
+import { Bullet } from '@/components/Bullet';
 import styles from './Plans.module.scss';
 
 const flagEnum = {
@@ -94,12 +94,12 @@ export function Plans() {
                 .join(' ')
               }
             >
-              {plan.flag === 'highlight' && (
+              {plan.flag === flagEnum.highlight && (
                 <span className={styles.flagHighlight}>
                   Mais Procurado
                 </span>
               )}
-              {plan.flag === 'news' && (
+              {plan.flag === flagEnum.news && (
                 <span className={styles.flagNews}>
                   Novidade
                 </span>
@@ -107,8 +107,8 @@ export function Plans() {
               <h3 className={styles.cardTitle}>{plan.title}</h3>
               <p className={styles.cardDescription}>{plan.description}</p>
               <ul>
-                {plan.featuresList.map((feature, index) => (
-                  <li key={plan.id + index} className={styles.featureItem}>
+                {plan.featuresList.map((feature) => (
+                  <li key={feature} className={styles.featureItem}>
                     <Bullet size="small" />
                     <span className={styles.featureText}>{feature}</span>
                   </li>
