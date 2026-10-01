@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
+import { CREF } from '@/lib/site';
 import styles from './About.module.scss';
 
 export function About() {
   const descriptions = [
-    'Sou Profissional de Educação Física (CREF 055596-RJ), pós-graduado em Biomecânica e '
+    `Sou Profissional de Educação Física (${CREF}), pós-graduado em Biomecânica e `
     + 'Periodização do Treinamento e cursando MBA em Gestão Fitness.',
     'Minha trajetória no esporte começou no futebol de base (America FC, CAAC Brasil, '
     + 'Taça das Favelas) e se consolidou na preparação física e musculação de alta performance, '

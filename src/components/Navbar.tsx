@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
+import { NAV_LINKS } from '@/lib/site';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import styles from './Navbar.module.scss';
 
@@ -60,10 +61,9 @@ export function Navbar() {
         </button>
 
         <nav className={styles.links} aria-label="Menu principal">
-          <Link href="#metodo">O Método</Link>
-          <Link href="#planos">Serviços</Link>
-          <Link href="#sobre">Sobre</Link>
-          <Link href="#faq">FAQ</Link>
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link key={href} href={href}>{label}</Link>
+          ))}
           <a
             href={buildWhatsAppLink()}
             target="_blank"
@@ -93,10 +93,9 @@ export function Navbar() {
         aria-hidden={!open}
       >
         <div className={styles.mobileMenuContent}>
-          <Link href="#metodo" onClick={() => setOpen(false)}>O Método</Link>
-          <Link href="#planos" onClick={() => setOpen(false)}>Serviços</Link>
-          <Link href="#sobre" onClick={() => setOpen(false)}>Sobre</Link>
-          <Link href="#faq" onClick={() => setOpen(false)}>FAQ</Link>
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link key={href} href={href} onClick={() => setOpen(false)}>{label}</Link>
+          ))}
           <a
             href={buildWhatsAppLink()}
             target="_blank"
