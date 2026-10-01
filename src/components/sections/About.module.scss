@@ -65,8 +65,9 @@ h3.title {
 }
 
 
-.containerBenefits {
-  gap: $spacing-6;
+.benefits {
+  @include flex(column, center, $gap: $spacing-6);
+
   margin-top: $spacing-12;
 }
 

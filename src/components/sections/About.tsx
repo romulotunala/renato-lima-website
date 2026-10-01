@@ -63,7 +63,7 @@ export function About() {
           />
         </div>
       </div>
-      <div className={`${styles.container} ${styles.containerBenefits}`}>
+      <div className={styles.benefits}>
         <h3 className={styles.title}>
           Um ecossistema completo
         </h3>
