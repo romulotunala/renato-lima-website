@@ -56,7 +56,7 @@ export function About() {
         <div className={styles.content}>
           <Image
             src={assetPath('/images/img_renato_lima.webp')}
-            alt="Renato Lima"
+            alt='Renato Lima'
             width={520}
             height={360}
             className={styles.image}
@@ -71,7 +71,7 @@ export function About() {
           {BENEFITS.map((benefit) => (
             <li key={benefit.title} className={styles.benefitCard}>
               <span className={styles.icon} aria-hidden='true'>
-                <img src={benefit.icon} alt='' width={40} height={40} />
+                <Image src={benefit.icon} alt='' width={40} height={40} />
               </span>
               <h4 className={styles.benefitTitle}>{benefit.title}</h4>
               <p className={styles.benefitDescription}>{benefit.description}</p>

@@ -46,14 +46,14 @@ export function Navbar() {
   return (
     <header
       ref={headerRef}
-      id="navbar"
+      id='navbar'
       className={cn(styles.navbar, scrolled && styles.scrolled)}
     >
       <div className={styles.inner}>
-        <button type="button" className={styles.brand} onClick={() => window.scrollTo(0, 0)}>
+        <button type='button' className={styles.brand} onClick={() => window.scrollTo(0, 0)}>
           <Image
             src={assetPath('/images/logo_renato_white.png')}
-            alt="Renato Lima"
+            alt='Renato Lima'
             width={220}
             height={56}
             className={styles.logoImg}
@@ -61,14 +61,14 @@ export function Navbar() {
           />
         </button>
 
-        <nav className={styles.links} aria-label="Menu principal">
+        <nav className={styles.links} aria-label='Menu principal'>
           {NAV_LINKS.map(({ href, label }) => (
             <Link key={href} href={href}>{label}</Link>
           ))}
           <a
             href={buildWhatsAppLink()}
-            target="_blank"
-            rel="noreferrer"
+            target='_blank'
+            rel='noreferrer'
             className={styles.cta}
           >
             Falar com o Personal
@@ -77,11 +77,11 @@ export function Navbar() {
 
         <button
           ref={menuButtonRef}
-          type="button"
+          type='button'
           className={styles.mobileBtn}
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={open}
-          aria-controls="mobile-menu"
+          aria-controls='mobile-menu'
           onClick={() => setOpen(!open)}
         >
           {open ? '✕' : '☰'}
@@ -89,7 +89,7 @@ export function Navbar() {
       </div>
 
       <div
-        id="mobile-menu"
+        id='mobile-menu'
         className={cn(styles.mobilePanel, open && styles.open)}
         aria-hidden={!open}
       >
@@ -99,8 +99,8 @@ export function Navbar() {
           ))}
           <a
             href={buildWhatsAppLink()}
-            target="_blank"
-            rel="noreferrer"
+            target='_blank'
+            rel='noreferrer'
             className={styles.mobileCta}
             onClick={() => setOpen(false)}
           >

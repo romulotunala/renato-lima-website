@@ -72,7 +72,7 @@ const plansContent: Plan[] = [
 
 export function Plans() {
   return (
-    <section className={styles.plans} id="planos" aria-label="Planos e serviços">
+    <section className={styles.plans} id='planos' aria-label='Planos e serviços'>
       <div className={styles.container}>
         <h2 className={styles.title}>
           Escolha a{' '}
@@ -101,7 +101,7 @@ export function Plans() {
                 <ul>
                   {plan.featuresList.map((feature) => (
                     <li key={feature} className={styles.featureItem}>
-                      <Bullet size="small" />
+                      <Bullet size='small' />
                       <span className={styles.featureText}>{feature}</span>
                     </li>
                   ))}

@@ -5,8 +5,8 @@ export function Cta() {
   const ctaMessage = 'Olá, Renato! Quero conversar sobre meus objetivos e agendar uma avaliação.';
 
   return (
-    <section className={styles.cta} aria-label="Call to action final">
-      <div className={styles.backgroundShape} aria-hidden="true" />
+    <section className={styles.cta} aria-label='Call to action final'>
+      <div className={styles.backgroundShape} aria-hidden='true' />
 
       <div className={styles.content}>
         <h2 className={styles.title}>Pronto para treinar com propósito?</h2>
@@ -17,8 +17,8 @@ export function Cta() {
         <a
           href={buildWhatsAppLink(ctaMessage)}
           className={styles.button}
-          target="_blank"
-          rel="noreferrer"
+          target='_blank'
+          rel='noreferrer'
         >
           Falar com o Personal Renato
         </a>

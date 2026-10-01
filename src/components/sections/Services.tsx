@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
 import styles from './Services.module.scss';
 
@@ -39,7 +40,7 @@ export function Services() {
         {PAIN_POINTS.map((painPoint) => (
           <li key={painPoint.title} className={styles.card}>
             <span className={styles.icon} aria-hidden='true'>
-              <img src={painPoint.icon} alt='' width={40} height={40} />
+              <Image src={painPoint.icon} alt='' width={40} height={40} />
             </span>
             <h3 className={styles.cardTitle}>{painPoint.title}</h3>
             <p className={styles.cardDescription}>{painPoint.description}</p>

@@ -32,7 +32,7 @@ const PILLARS = [
 
 export function Metodo() {
   return (
-    <section className={styles.metodo} id="metodo" aria-label="O Método">
+    <section className={styles.metodo} id='metodo' aria-label='O Método'>
       <div className={styles.content}>
         <h2 className={styles.title}>
           Você não recebe um treino. <br/>
@@ -54,10 +54,10 @@ export function Metodo() {
       </div>
 
       <div className={styles.imageWrap}>
-        <div className={styles.imageGlow} aria-hidden="true" />
+        <div className={styles.imageGlow} aria-hidden='true' />
         <Image
           src={assetPath('/images/img_renato_aula.jpeg')}
-          alt="Pessoa treinando com estratégia"
+          alt='Pessoa treinando com estratégia'
           width={720}
           height={500}
           className={styles.image}

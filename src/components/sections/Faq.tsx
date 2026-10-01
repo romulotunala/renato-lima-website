@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import styles from './Faq.module.scss';
 import { assetPath } from '@/lib/assets';
 import { cn } from '@/lib/cn';
@@ -69,7 +70,7 @@ export function Faq() {
   };
 
   return (
-    <section className={styles.faq} id="faq" aria-label="Perguntas frequentes">
+    <section className={styles.faq} id='faq' aria-label='Perguntas frequentes'>
       <h2 className={styles.title}>
         Perguntas <span className={styles.highlightTitle}>Frequentes</span>
       </h2>
@@ -78,7 +79,7 @@ export function Faq() {
         {FAQ_ITEMS.map((item) => (
           <li key={item.id} className={styles.faqItem}>
             <button
-              type="button"
+              type='button'
               className={styles.question}
               aria-expanded={activeFaqItem === item.id}
               aria-controls={`faq-answer-${item.id}`}
@@ -87,9 +88,9 @@ export function Faq() {
               <span>{item.question}</span>
               <span
                 className={cn(styles.indicator, activeFaqItem === item.id && styles.indicatorOpen)}
-                aria-hidden="true"
+                aria-hidden='true'
               >
-                <img src={assetPath('/arrow_down.svg')} alt="" width={24} height={24} />
+                <Image src={assetPath('/arrow_down.svg')} alt='' width={24} height={24} />
               </span>
             </button>
             <div

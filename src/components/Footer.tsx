@@ -11,7 +11,7 @@ export function Footer() {
         <div className={styles.brand}>
           <Image
             src={assetPath('/images/logo_renato_white.png')}
-            alt="Renato Lima"
+            alt='Renato Lima'
             width={220}
             height={56}
             className={styles.logo}
@@ -32,26 +32,26 @@ export function Footer() {
         <div className={styles.contact}>
           <h2>Atendimento</h2>
           <p>
-            <Image src={assetPath('/pin_drop_orange.svg')} alt="" width={20} height={20} />
+            <Image src={assetPath('/pin_drop_orange.svg')} alt='' width={20} height={20} />
             Campo Grande e Recreio - RJ
           </p>
           <p>
             <Image
               src={assetPath('/whatsapp.svg')}
-              alt=""
+              alt=''
               width={16}
               height={16}
             />
-            <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer">{PHONE.display}</a>
+            <a href={buildWhatsAppLink()} target='_blank' rel='noreferrer'>{PHONE.display}</a>
           </p>
           <p>
             <Image
               src={assetPath('/instagram.svg')}
-              alt=""
+              alt=''
               width={16}
               height={16}
             />
-            <a href={INSTAGRAM.url} target="_blank" rel="noreferrer">
+            <a href={INSTAGRAM.url} target='_blank' rel='noreferrer'>
               {INSTAGRAM.handle}
             </a>
           </p>
