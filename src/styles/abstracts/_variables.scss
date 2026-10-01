@@ -15,8 +15,9 @@ $color-bg-alt: #f5f5f5;
 $color-border: #27272a;
 
 // Tipografia
-$font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-$font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+// Famílias carregadas via next/font (layout.tsx) e expostas como CSS custom properties
+$font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+$font-heading: var(--font-heading), system-ui, -apple-system, sans-serif;
 $font-mono: 'Fira Code', 'Courier New', monospace;
 
 $font-size-xs: 0.75rem;     // 12px
