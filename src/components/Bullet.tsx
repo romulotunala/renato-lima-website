@@ -10,4 +10,4 @@ export function Bullet({ size = 'medium' }: BulletProps) {
       ✓
     </span>
   );
-};
+}

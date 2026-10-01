@@ -17,7 +17,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_FORMSPREE_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORMSPREE_ENDPOINT }}
       NEXT_PUBLIC_BASE_URL: https://personalrenatolima.com.br
     steps:
       - uses: actions/checkout@v4

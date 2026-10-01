@@ -27,10 +27,6 @@
   min-width: 180px;
 }
 
-.brand {
-  flex: 1.2;
-}
-
 .logo {
   width: 220px;
   height: auto;
@@ -49,11 +45,6 @@
 
 .cref {
   font-weight: $font-weight-bold;
-}
-
-.links,
-.contact {
-  flex: 1;
 }
 
 .links h2,
