@@ -1,78 +1,29 @@
-# renato-lima-website
+# Renato Lima | Personal Trainer
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
 ![SCSS Modules](https://img.shields.io/badge/SCSS-Modules-cc6699?logo=sass&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-Boilerplate open source para **sites institucionais estáticos** com Next.js.
+Landing page do personal trainer Renato Lima, publicada em
+[personalrenatolima.com.br](https://personalrenatolima.com.br).
 
-Pensado para devs que querem começar com uma base enxuta, moderna e fácil de adaptar,
-sem precisar montar estrutura, lint, testes e deploy do zero em todo projeto novo.
-
-## Por que usar
-
-- Exportação estática pronta para GitHub Pages.
-- Estrutura organizada para conteúdo, componentes e estilos.
-- SCSS Modules em vez de classes utilitárias.
-- TypeScript estrito desde o início.
-- Lint, testes e hooks de qualidade já configurados.
-- Base preparada para ser clonada, adaptada e publicada rápido.
-
-## O que vem no boilerplate
-
-| Área | Inclui |
-|---|---|
-| App | Next.js 16 + App Router + `output: 'export'` |
-| UI | Seções institucionais base (`Hero`, `About`, `Services`) |
-| Estilo | SCSS + CSS Modules + tokens e mixins globais |
-| Qualidade | ESLint 9, Stylelint, Husky, lint-staged, commitlint |
-| Testes | Vitest + Testing Library + Playwright |
-| Deploy | GitHub Actions + GitHub Pages |
-
-## Ideal para / Não ideal para
-
-### Ideal para
-
-- Sites institucionais e landing pages estáticas.
-- Portfólios e páginas de empresa com poucas rotas.
-- Projetos que fazem deploy no GitHub Pages ou em qualquer host estático.
-- Quem quer SCSS Modules e TypeScript estrito já configurados.
-
-### Não ideal para
-
-- Aplicações que dependem de renderização no servidor (SSR) ou rotas de API.
-- Conteúdo altamente dinâmico que exige backend próprio.
-- Projetos que precisam de recursos que não funcionam com `output: 'export'`.
+É um site estático de página única (`output: 'export'`). Os contatos são feitos por links do
+WhatsApp com mensagens pré-preenchidas.
 
 ## Stack
 
-| Item | Versão |
+| Área | Ferramentas |
 |---|---|
-| Next.js | 16.x |
-| React | 19 |
-| TypeScript | 5 |
-| Node.js | 24+ |
-| Estilos | SCSS + CSS Modules |
-| Testes | Vitest + Playwright |
+| App | Next.js 16 (App Router, export estático), React 19, TypeScript estrito |
+| Estilo | SCSS + CSS Modules, tokens e mixins em `src/styles/abstracts` |
+| Qualidade | ESLint 10, Stylelint, Husky, lint-staged, commitlint |
+| Testes | Vitest + Testing Library (unitários), Playwright (E2E) |
+| Deploy | GitHub Actions → GitHub Pages |
 
-## Começando
+Requer Node.js 24+ e pnpm 11.
 
-### Usando como template
-
-1. Clique em **Use this template** no GitHub.
-2. Crie um novo repositório a partir dele.
-3. Clone o projeto gerado.
-4. Instale as dependências.
-
-```bash
-pnpm install
-pnpm dev
-```
-
-### Rodando localmente
+## Rodando localmente
 
 ```bash
 pnpm install
@@ -84,63 +35,60 @@ Abra `http://localhost:3000`.
 ## Scripts
 
 ```bash
-pnpm dev          # desenvolvimento
+pnpm dev          # servidor de desenvolvimento
 pnpm build        # build estático em out/
 pnpm lint         # ESLint + Stylelint
-pnpm lint:fix     # corrige problemas automáticos
+pnpm lint:fix     # corrige o que for automático
 pnpm test         # testes unitários
-pnpm test:e2e     # testes end-to-end
+pnpm test:e2e     # testes E2E contra out/ (rode pnpm build antes)
 ```
 
-## Pontos de customização
+Na primeira vez que for rodar o E2E, instale o navegador com
+`pnpm exec playwright install chromium`.
 
-Os arquivos abaixo concentram quase tudo que costuma mudar de um projeto para outro:
+## Onde editar
 
-- `src/content/home.ts`: textos principais da home
-- `src/app/layout.tsx`: metadados globais da aplicação
-- `next.config.ts`: `repoName` e comportamento de export estático
-- `src/styles/abstracts/_variables.scss`: tokens visuais
-- `src/components/sections/*`: estrutura e composição das seções
+| O que mudar | Onde |
+|---|---|
+| Texto de uma seção | O próprio componente em `src/components/sections/` |
+| Telefone, CREF, Instagram, links do menu, URL e descrição do site | `src/lib/site.ts` |
+| Mensagens e links do WhatsApp | `src/lib/whatsapp.ts` |
+| Ordem das seções | `src/app/page.tsx` |
+| Metadados, Open Graph e fontes | `src/app/layout.tsx` |
+| Cores, espaçamentos, breakpoints e gradientes | `src/styles/abstracts/_variables.scss` |
+| Imagens e ícones | `public/` |
 
-## Estrutura do projeto
+O conteúdo fica junto do componente que o exibe. Listas (planos, FAQ, benefícios) são
+constantes no topo do arquivo, renderizadas com `map`. Só dados usados por mais de um
+componente ficam em `src/lib/site.ts`.
+
+## Estrutura
 
 ```text
 src/
-├── app/               # App Router, layout e sitemap
+├── app/               # layout, página e sitemap
 ├── components/
-│   ├── sections/      # blocos de página
+│   ├── sections/      # seções da página
 │   └── ui/            # componentes reutilizáveis
-├── content/           # conteúdo estático editável
-├── lib/               # lógica compartilhada por domínio
-├── styles/            # SCSS global, tokens e base visual
-└── tests/             # setup e testes unitários
+├── lib/               # dados do site e helpers (WhatsApp, assets, cn)
+├── styles/            # SCSS global, tokens e mixins
+└── tests/             # setup do Vitest
+e2e/                   # testes Playwright
 ```
 
-## Deploy no GitHub Pages
+## Convenções
 
-1. Ajuste `repoName` em `next.config.ts` para o nome do seu repositório.
-2. Faça push para `main`.
-3. No GitHub, ative **Settings → Pages → Source: GitHub Actions**.
+- Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/). O commitlint
+  valida a mensagem no hook `commit-msg`.
+- O hook `pre-commit` roda ESLint e Stylelint nos arquivos staged.
+- Os testes unitários ficam ao lado do arquivo testado (`Componente.test.tsx`).
 
-O workflow já está configurado para build e deploy do site estático.
+## Deploy
 
-## Extensões possíveis
+Todo push na `main` dispara o workflow [deploy.yml](.github/workflows/deploy.yml). Ele roda,
+em ordem: lint, testes unitários, build, verificação dos assets exportados, testes E2E e
+publicação no GitHub Pages. O domínio próprio é configurado em
+**Settings → Pages → Custom domain**.
 
-Algumas evoluções naturais para projetos derivados desse template:
-
-- i18n com `next-intl`
-- CMS headless
-- analytics privacy-friendly
-- animações com `motion`
-- Storybook para catálogo de componentes
-
-## Contribuição
-
-Contribuições são bem-vindas, especialmente melhorias que tornem o template mais reutilizável,
-claro e fácil de manter.
-
-Leia [CONTRIBUTING.md](CONTRIBUTING.md) para o fluxo de contribuição.
-
-## Licença
-
-MIT
+A variável `NEXT_PUBLIC_BASE_URL` define a URL usada nos metadados e no sitemap. O valor padrão é
+`https://personalrenatolima.com.br`.
