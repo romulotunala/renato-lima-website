@@ -24,7 +24,7 @@ export function Services({
         {services.map((service) => (
           <li key={service.title} className={styles.card}>
             <span className={styles.icon} aria-hidden='true'>
-              <img src={service.icon} alt={service.title} width={40} height={40} />
+              <img src={service.icon} alt='' width={40} height={40} />
             </span>
             <h3 className={styles.cardTitle}>{service.title}</h3>
             <p className={styles.cardDescription}>{service.description}</p>

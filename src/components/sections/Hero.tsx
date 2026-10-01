@@ -28,7 +28,7 @@ export function Hero({
       <div className={styles.bg} aria-hidden>
         <Image
           src={assetPath('/images/photo-1534438327276-14e5300c3a48.avif')}
-          alt='Fundo Academia'
+          alt=''
           fill
           priority
           sizes='100vw'
@@ -45,7 +45,7 @@ export function Hero({
 
               <Image
                 src={assetPath('/images/logo-lightning.png')}
-                alt='Logo Lightning'
+                alt=''
                 fill
                 style={{ objectFit: 'contain' }}
 
@@ -59,7 +59,13 @@ export function Hero({
           </h1>
           <p className={styles.subtitle}>{subtitle}</p>
           <div className={styles.actions}>
-            <Button href={ctaHref} size='lg' className={styles.primaryAction}>
+            <Button
+              href={ctaHref}
+              size='lg'
+              className={styles.primaryAction}
+              target='_blank'
+              rel='noreferrer'
+            >
               {ctaLabel}
             </Button>
             <Button href='#planos' variant='secondary' size='lg' className={styles.secondaryAction}>

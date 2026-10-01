@@ -70,7 +70,7 @@ export function About() {
           {benefits.map((benefit) => (
             <li key={benefit.title} className={styles.benefitCard}>
               <span className={styles.icon} aria-hidden='true'>
-                <img src={benefit.icon} alt={benefit.title} width={40} height={40} />
+                <img src={benefit.icon} alt='' width={40} height={40} />
               </span>
               <h4 className={styles.benefitTitle}>{benefit.title}</h4>
               <p className={styles.benefitDescription}>{benefit.description}</p>

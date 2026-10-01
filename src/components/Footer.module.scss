@@ -56,10 +56,11 @@
   flex: 1;
 }
 
-.links h4,
-.contact h4 {
+.links h2,
+.contact h2 {
   margin: 0 0 $spacing-2;
   color: $color-text;
+  font-size: $font-size-xl;
   font-weight: $font-weight-bold;
   text-transform: uppercase;
 }

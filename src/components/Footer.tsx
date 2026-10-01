@@ -20,7 +20,7 @@ export function Footer() {
         </div>
 
         <div className={styles.links}>
-          <h4>Navegação</h4>
+          <h2>Navegação</h2>
           <nav>
             <a href="#metodo">O Método</a>
             <a href="#planos">Serviços e Planos</a>
@@ -30,7 +30,7 @@ export function Footer() {
         </div>
 
         <div className={styles.contact}>
-          <h4>Atendimento</h4>
+          <h2>Atendimento</h2>
           <p>
             <Image src={assetPath('/pin_drop_orange.svg')} alt="" width={20} height={20} />
             Campo Grande e Recreio - RJ

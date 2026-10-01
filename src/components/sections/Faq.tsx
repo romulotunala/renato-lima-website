@@ -92,16 +92,18 @@ export function Faq() {
                 <img src={assetPath('/arrow_down.svg')} alt="" width={24} height={24} />
               </span>
             </button>
-            {activeFaqItem === item.id && (
-              <div id={`faq-answer-${item.id}`} className={styles.answer}>
-                {item.answer.map((answer) => (
-                  <p key={answer.id}>
-                    {answer.label && <strong>{answer.label} </strong>}
-                    {answer.text}
-                  </p>
-                ))}
-              </div>
-            )}
+            <div
+              id={`faq-answer-${item.id}`}
+              className={styles.answer}
+              hidden={activeFaqItem !== item.id}
+            >
+              {item.answer.map((answer) => (
+                <p key={answer.id}>
+                  {answer.label && <strong>{answer.label} </strong>}
+                  {answer.text}
+                </p>
+              ))}
+            </div>
           </li>
         ))}
       </ul>
