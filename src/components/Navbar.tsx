@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
+import { cn } from '@/lib/cn';
 import { NAV_LINKS } from '@/lib/site';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import styles from './Navbar.module.scss';
@@ -46,7 +47,7 @@ export function Navbar() {
     <header
       ref={headerRef}
       id="navbar"
-      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}
+      className={cn(styles.navbar, scrolled && styles.scrolled)}
     >
       <div className={styles.inner}>
         <button type="button" className={styles.brand} onClick={() => window.scrollTo(0, 0)}>
@@ -89,7 +90,7 @@ export function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`${styles.mobilePanel} ${open ? styles.open : ''}`}
+        className={cn(styles.mobilePanel, open && styles.open)}
         aria-hidden={!open}
       >
         <div className={styles.mobileMenuContent}>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './Faq.module.scss';
 import { assetPath } from '@/lib/assets';
+import { cn } from '@/lib/cn';
 
 const FAQ_ITEMS = [
   {
@@ -85,9 +86,7 @@ export function Faq() {
             >
               <span>{item.question}</span>
               <span
-                className={`${styles.indicator} ${
-                  activeFaqItem === item.id ? styles.indicatorOpen : ''
-                }`}
+                className={cn(styles.indicator, activeFaqItem === item.id && styles.indicatorOpen)}
                 aria-hidden="true"
               >
                 <img src={assetPath('/arrow_down.svg')} alt="" width={24} height={24} />

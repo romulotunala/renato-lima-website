@@ -1,5 +1,6 @@
 import { buildPlanWhatsAppLink } from '@/lib/whatsapp';
 import { Bullet } from '@/components/Bullet';
+import { cn } from '@/lib/cn';
 import styles from './Plans.module.scss';
 
 const flagEnum = {
@@ -70,12 +71,6 @@ const plansContent: Plan[] = [
 ];
 
 export function Plans() {
-  const getCardHighlightClassName = (flag: Flag | undefined) =>
-    flag === flagEnum.highlight ? styles.cardHighlight : false;
-
-  const getButtonHighlightClassName = (flag: Flag | undefined) =>
-    flag === flagEnum.highlight ? styles.cardButtonHighlight : false;
-
   return (
     <section className={styles.plans} id="planos" aria-label="Planos e serviços">
       <div className={styles.container}>
@@ -86,48 +81,43 @@ export function Plans() {
         <p className={styles.subtitle}>Opções que se adaptam à sua rotina, garantindo{' '}
           acompanhamento técnico de excelência.</p>
         <ul className={styles.cardsList}>
-          {plansContent.map((plan) => (
-            <li
-              key={plan.id}
-              className={[styles.card, getCardHighlightClassName(plan.flag)]
-                .filter(Boolean)
-                .join(' ')
-              }
-            >
-              {plan.flag === flagEnum.highlight && (
-                <span className={styles.flagHighlight}>
-                  Mais Procurado
-                </span>
-              )}
-              {plan.flag === flagEnum.news && (
-                <span className={styles.flagNews}>
-                  Novidade
-                </span>
-              )}
-              <h3 className={styles.cardTitle}>{plan.title}</h3>
-              <p className={styles.cardDescription}>{plan.description}</p>
-              <ul>
-                {plan.featuresList.map((feature) => (
-                  <li key={feature} className={styles.featureItem}>
-                    <Bullet size="small" />
-                    <span className={styles.featureText}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={buildPlanWhatsAppLink(plan.title)}
-                className={[styles.cardButton, getButtonHighlightClassName(plan.flag)]
-                  .filter(Boolean)
-                  .join(' ')
-                }
-                target='_blank'
-                rel='noreferrer'
-                aria-label={`Consultar plano ${plan.title}`}
-              >
-                {plan.buttonText}
-              </a>
-            </li>
-          ))}
+          {plansContent.map((plan) => {
+            const isHighlight = plan.flag === flagEnum.highlight;
+
+            return (
+              <li key={plan.id} className={cn(styles.card, isHighlight && styles.cardHighlight)}>
+                {isHighlight && (
+                  <span className={styles.flagHighlight}>
+                    Mais Procurado
+                  </span>
+                )}
+                {plan.flag === flagEnum.news && (
+                  <span className={styles.flagNews}>
+                    Novidade
+                  </span>
+                )}
+                <h3 className={styles.cardTitle}>{plan.title}</h3>
+                <p className={styles.cardDescription}>{plan.description}</p>
+                <ul>
+                  {plan.featuresList.map((feature) => (
+                    <li key={feature} className={styles.featureItem}>
+                      <Bullet size="small" />
+                      <span className={styles.featureText}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={buildPlanWhatsAppLink(plan.title)}
+                  className={cn(styles.cardButton, isHighlight && styles.cardButtonHighlight)}
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label={`Consultar plano ${plan.title}`}
+                >
+                  {plan.buttonText}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
