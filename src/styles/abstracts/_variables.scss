@@ -4,7 +4,9 @@
 
 // Cores
 $color-secondary: #f97316;
+$color-secondary-dark: #ea580c;
 $color-accent-red: #dc2626;
+$color-navy: #0f1724;
 $color-text: #fff;
 $color-text-muted: #a1a1aa;
 $color-bg: #0f0f12;
@@ -55,15 +57,27 @@ $spacing-16: 4rem;
 $spacing-20: 5rem;
 $spacing-24: 6rem;
 
+// Gradientes da marca
+$gradient-brand: linear-gradient(to right, $color-secondary, $color-accent-red);
+$gradient-brand-diagonal: linear-gradient(135deg, $color-secondary, $color-accent-red);
+$gradient-brand-dark: linear-gradient(to right, $color-secondary-dark, $color-accent-red);
+
 // Layout
 $container-max: 1200px;
 $container-padding: $spacing-6;
+$navbar-height: 5rem;
 
 // Breakpoints
 $bp-sm: 640px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 $bp-xl: 1280px;
+$breakpoints: (
+  sm: $bp-sm,
+  md: $bp-md,
+  lg: $bp-lg,
+  xl: $bp-xl,
+);
 
 // Bordas
 $border-radius-sm: 4px;

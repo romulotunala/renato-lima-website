@@ -109,7 +109,7 @@
   color: $color-text-muted;
 }
 
-@media (max-width: #{$bp-md - 1px}) {
+@include respond-below(md) {
   .container,
   .legal {
     align-items: center;

@@ -28,7 +28,6 @@
 .title {
   @include section-title-base;
 
-  font-size: clamp(2.6rem, 5.2vw, 3rem);
   margin-bottom: $spacing-6;
 }
 
@@ -81,7 +80,7 @@
   position: absolute;
   inset: -1.5rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgb(249 115 22 / 25%), rgb(220 38 38 / 18%));
+  background: linear-gradient(135deg, rgba($color-secondary, 0.25), rgba($color-accent-red, 0.18));
   filter: blur(2rem);
   opacity: 0.8;
 }

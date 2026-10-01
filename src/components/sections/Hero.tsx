@@ -16,7 +16,6 @@ export function Hero() {
           fill
           priority
           sizes='100vw'
-          style={{ objectFit: 'cover' }}
         />
         <div className={styles.overlayVertical} />
         <div className={styles.overlayHorizontal} />
@@ -25,13 +24,8 @@ export function Hero() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.badge}>
-            <div style={{ width: '16px', height: '16px', position: 'relative' }}>
-              <Image
-                src={assetPath('/images/logo-lightning.png')}
-                alt=''
-                fill
-                style={{ objectFit: 'contain' }}
-              />
+            <div className={styles.badgeIcon}>
+              <Image src={assetPath('/images/logo-lightning.png')} alt='' fill />
             </div>
             Consultoria & Personal Premium
           </div>

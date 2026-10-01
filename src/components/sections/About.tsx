@@ -64,7 +64,7 @@ export function About() {
         </div>
       </div>
       <div className={`${styles.container} ${styles.containerBenefits}`}>
-        <h3 className={styles.title} style={{ textAlign: 'center' }}>
+        <h3 className={styles.title}>
           Um ecossistema completo
         </h3>
         <ul className={styles.benefitsList}>

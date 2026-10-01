@@ -2,8 +2,9 @@
 // Globals — ponto de entrada dos estilos
 // =============================================================================
 
+@use 'abstracts/variables' as *;
 @use 'base/reset';
 @use 'base/typography';
 
-/* Ensure main content clears the fixed navbar (approx 5rem) */
-main { padding-top: 5rem; }
+// Compensa a altura do Navbar fixo
+main { padding-top: $navbar-height; }
