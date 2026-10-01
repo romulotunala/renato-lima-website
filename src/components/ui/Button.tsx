@@ -1,7 +1,8 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import { cn } from '@/lib/cn';
 import styles from './Button.module.scss';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonVariant = 'primary' | 'secondary';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 type ButtonAsButton = {
@@ -25,9 +26,7 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
-  const classes = [styles.button, styles[variant], styles[size], className]
-    .filter(Boolean)
-    .join(' ');
+  const classes = cn(styles.button, styles[variant], styles[size], className);
 
   if ('href' in props && props.href !== undefined) {
     const { href, ...anchorProps } = props as ButtonAsAnchor;

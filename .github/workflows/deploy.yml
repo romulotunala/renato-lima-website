@@ -17,7 +17,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_FORMSPREE_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORMSPREE_ENDPOINT }}
       NEXT_PUBLIC_BASE_URL: https://personalrenatolima.com.br
     steps:
       - uses: actions/checkout@v4
@@ -45,8 +44,10 @@ jobs:
         run: |
           for asset in \
             images/logo_renato_white.png \
+            images/logo-lightning.png \
+            images/logo-og.png \
             images/photo-1534438327276-14e5300c3a48.avif \
-            images/img_renato_lima.png \
+            images/img_renato_lima.webp \
             images/img_renato_aula.jpeg \
             pin_drop_orange.svg \
             event_busy_orange.svg \
@@ -54,10 +55,16 @@ jobs:
             nutrition_orange.svg \
             sell_orange.svg \
             mobile_orange.svg \
-            arrow_down.svg; do
+            arrow_down.svg \
+            whatsapp.svg \
+            instagram.svg; do
             test -f "out/$asset"
             grep -q "/$asset" out/index.html
           done
+
+      - run: pnpm exec playwright install --with-deps chromium
+
+      - run: pnpm test:e2e
 
       - uses: actions/upload-pages-artifact@v3
         with:

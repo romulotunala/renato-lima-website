@@ -1,38 +1,21 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { assetPath } from '@/lib/assets';
-import { heroContent } from '@/content/home';
+import { buildWhatsAppLink } from '@/lib/whatsapp';
 import styles from './Hero.module.scss';
 
-interface HeroProps {
-  readonly title?: string;
-  readonly highlightTitle?: string;
-  readonly subtitle?: string;
-  readonly ctaLabel?: string;
-  readonly ctaHref?: string;
-  readonly badgeLabel?: string;
-  readonly secondaryCtaLabel?: string;
-}
+const CTA_MESSAGE = 'Olá, Renato! Vim pelo site e gostaria de iniciar minha transformação.';
 
-export function Hero({
-  title = heroContent.title,
-  highlightTitle = heroContent.highlightTitle,
-  subtitle = heroContent.subtitle,
-  ctaLabel = heroContent.primaryCtaLabel,
-  ctaHref = heroContent.primaryCtaHref,
-  badgeLabel = heroContent.badgeLabel,
-  secondaryCtaLabel = heroContent.secondaryCtaLabel,
-}: HeroProps) {
+export function Hero() {
   return (
     <section className={styles.hero} aria-label='Apresentação principal'>
       <div className={styles.bg} aria-hidden>
         <Image
           src={assetPath('/images/photo-1534438327276-14e5300c3a48.avif')}
-          alt='Fundo Academia'
+          alt=''
           fill
           priority
           sizes='100vw'
-          style={{ objectFit: 'cover' }}
         />
         <div className={styles.overlayVertical} />
         <div className={styles.overlayHorizontal} />
@@ -41,29 +24,32 @@ export function Hero({
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.badge}>
-            <div style={{ width: '16px', height: '16px', position: 'relative' }}>
-
-              <Image
-                src={assetPath('/images/logo-lightning.png')}
-                alt='Logo Lightning'
-                fill
-                style={{ objectFit: 'contain' }}
-
-              />
+            <div className={styles.badgeIcon}>
+              <Image src={assetPath('/images/logo-lightning.png')} alt='' fill />
             </div>
-            {badgeLabel}</div>
+            Consultoria & Personal Premium
+          </div>
           <h1 className={styles.title}>
-            <span>{title}</span>
+            <span>Resultado não vem do acaso.</span>
             <br />
-            <span className={styles.highlightTitle}>{highlightTitle}</span>
+            <span className={styles.highlightTitle}>Vem da estratégia.</span>
           </h1>
-          <p className={styles.subtitle}>{subtitle}</p>
+          <p className={styles.subtitle}>
+            Treino personalizado, biomecânica e periodização científica para você transformar{' '}
+            seu corpo com segurança, constância e sem perder tempo.
+          </p>
           <div className={styles.actions}>
-            <Button href={ctaHref} size='lg' className={styles.primaryAction}>
-              {ctaLabel}
+            <Button
+              href={buildWhatsAppLink(CTA_MESSAGE)}
+              size='lg'
+              className={styles.primaryAction}
+              target='_blank'
+              rel='noreferrer'
+            >
+              Iniciar Transformação
             </Button>
             <Button href='#planos' variant='secondary' size='lg' className={styles.secondaryAction}>
-              {secondaryCtaLabel}
+              Conhecer os planos
             </Button>
           </div>
         </div>

@@ -10,9 +10,7 @@
 .title {
   @include section-title-base;
 
-  font-size: clamp(2.6rem, 5.2vw, 3rem);
   text-align: center;
-  text-transform: uppercase;
 }
 
 .highlightTitle {

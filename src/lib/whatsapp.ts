@@ -1,10 +1,11 @@
-export const WHATSAPP_PHONE_NUMBER = '5521991425161';
-export const WHATSAPP_BASE_URL = 'https://wa.me';
+import { PHONE } from '@/lib/site';
+
+const WHATSAPP_BASE_URL = 'https://wa.me';
 export const DEFAULT_WHATSAPP_MESSAGE = 'Olá, Renato! Vim pelo site e gostaria de falar com você.';
 
 export function buildWhatsAppLink(message = DEFAULT_WHATSAPP_MESSAGE): string {
   const sanitizedMessage = message.trim();
-  const url = new URL(`${WHATSAPP_BASE_URL}/${WHATSAPP_PHONE_NUMBER}`);
+  const url = new URL(`${WHATSAPP_BASE_URL}/${PHONE.e164}`);
 
   if (sanitizedMessage.length > 0) {
     url.searchParams.set('text', sanitizedMessage);

@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react';
 import type { ImgHTMLAttributes } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { Hero } from './Hero';
-import { heroContent } from '@/content/home';
 
 vi.mock('next/image', () => ({
   default: ({ alt, ...props }: ImgHTMLAttributes<HTMLImageElement>) => <img alt={alt} {...props} />,
@@ -12,15 +11,19 @@ describe('Hero', () => {
   it('renders the hero badge, headline and call to action buttons', () => {
     render(<Hero />);
 
-    expect(screen.getByText(heroContent.badgeLabel)).toBeInTheDocument();
+    expect(screen.getByText('Consultoria & Personal Premium')).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { level: 1, name: /resultado não vem do acaso/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: heroContent.primaryCtaLabel })).toHaveAttribute(
-      'href',
-      heroContent.primaryCtaHref,
+
+    const primaryCta = screen.getByRole('link', { name: 'Iniciar Transformação' });
+    const primaryCtaText = new URL(primaryCta.getAttribute('href') ?? '').searchParams.get('text');
+    expect(primaryCtaText).toBe(
+      'Olá, Renato! Vim pelo site e gostaria de iniciar minha transformação.',
     );
-    expect(screen.getByRole('link', { name: heroContent.secondaryCtaLabel })).toHaveAttribute(
+    expect(primaryCta).toHaveAttribute('target', '_blank');
+
+    expect(screen.getByRole('link', { name: 'Conhecer os planos' })).toHaveAttribute(
       'href',
       '#planos',
     );

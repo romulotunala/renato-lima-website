@@ -1,36 +1,59 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
+import { cn } from '@/lib/cn';
+import { NAV_LINKS } from '@/lib/site';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import styles from './Navbar.module.scss';
+
+const SCROLL_THRESHOLD = 20;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
     if (!open) return;
-    const onRoute = () => setOpen(false);
-    window.addEventListener('hashchange', onRoute);
-    return () => window.removeEventListener('hashchange', onRoute);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setOpen(false);
+      menuButtonRef.current?.focus();
+    };
+    const onPointerDown = (event: PointerEvent) => {
+      if (headerRef.current?.contains(event.target as Node)) return;
+      setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    document.addEventListener('pointerdown', onPointerDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('pointerdown', onPointerDown);
+    };
   }, [open]);
 
   return (
-    <header id="navbar" className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+    <header
+      ref={headerRef}
+      id='navbar'
+      className={cn(styles.navbar, scrolled && styles.scrolled)}
+    >
       <div className={styles.inner}>
-        <button type="button" className={styles.brand} onClick={() => window.scrollTo(0, 0)}>
+        <button type='button' className={styles.brand} onClick={() => window.scrollTo(0, 0)}>
           <Image
             src={assetPath('/images/logo_renato_white.png')}
-            alt="Renato Lima"
+            alt='Renato Lima'
             width={220}
             height={56}
             className={styles.logoImg}
@@ -38,15 +61,14 @@ export function Navbar() {
           />
         </button>
 
-        <nav className={styles.links} aria-label="Menu principal">
-          <Link href="#metodo">O Método</Link>
-          <Link href="#planos">Serviços</Link>
-          <Link href="#sobre">Sobre</Link>
-          <Link href="#faq">FAQ</Link>
+        <nav className={styles.links} aria-label='Menu principal'>
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link key={href} href={href}>{label}</Link>
+          ))}
           <a
             href={buildWhatsAppLink()}
-            target="_blank"
-            rel="noreferrer"
+            target='_blank'
+            rel='noreferrer'
             className={styles.cta}
           >
             Falar com o Personal
@@ -54,11 +76,12 @@ export function Navbar() {
         </nav>
 
         <button
-          type="button"
+          ref={menuButtonRef}
+          type='button'
           className={styles.mobileBtn}
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={open}
-          aria-controls="mobile-menu"
+          aria-controls='mobile-menu'
           onClick={() => setOpen(!open)}
         >
           {open ? '✕' : '☰'}
@@ -66,19 +89,18 @@ export function Navbar() {
       </div>
 
       <div
-        id="mobile-menu"
-        className={`${styles.mobilePanel} ${open ? styles.open : ''}`}
+        id='mobile-menu'
+        className={cn(styles.mobilePanel, open && styles.open)}
         aria-hidden={!open}
       >
         <div className={styles.mobileMenuContent}>
-          <Link href="#metodo" onClick={() => setOpen(false)}>O Método</Link>
-          <Link href="#planos" onClick={() => setOpen(false)}>Serviços</Link>
-          <Link href="#sobre" onClick={() => setOpen(false)}>Sobre</Link>
-          <Link href="#faq" onClick={() => setOpen(false)}>FAQ</Link>
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link key={href} href={href} onClick={() => setOpen(false)}>{label}</Link>
+          ))}
           <a
             href={buildWhatsAppLink()}
-            target="_blank"
-            rel="noreferrer"
+            target='_blank'
+            rel='noreferrer'
             className={styles.mobileCta}
             onClick={() => setOpen(false)}
           >

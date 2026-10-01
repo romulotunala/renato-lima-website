@@ -7,11 +7,7 @@
   padding-block: $spacing-24;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    $color-secondary,
-    $color-accent-red
-  );
+  background: $gradient-brand-diagonal;
 }
 
 .backgroundShape {
@@ -33,10 +29,7 @@
 .title {
   @include section-title-base;
 
-  font-size: clamp(2.6rem, 5.2vw, 3rem);
-  letter-spacing: 0.03em;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .lead {
@@ -49,11 +42,11 @@
 
 .button {
   display: inline-block;
-  background: #0f1724;
-  color: white;
+  background: $color-navy;
+  color: $color-text;
   padding: $spacing-5 $spacing-10;
-  border-radius: 0.5rem;
-  font-weight: 700;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }

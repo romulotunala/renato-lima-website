@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
+import { CREF, INSTAGRAM, NAV_LINKS, PHONE } from '@/lib/site';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import styles from './Footer.module.scss';
 
@@ -10,53 +11,48 @@ export function Footer() {
         <div className={styles.brand}>
           <Image
             src={assetPath('/images/logo_renato_white.png')}
-            alt="Renato Lima"
+            alt='Renato Lima'
             width={220}
             height={56}
             className={styles.logo}
           />
           <p>Personal Trainer & Consultoria Premium</p>
-          <p className={styles.cref}>CREF 055596-RJ</p>
+          <p className={styles.cref}>{CREF}</p>
         </div>
 
         <div className={styles.links}>
-          <h4>Navegação</h4>
+          <h2>Navegação</h2>
           <nav>
-            <a href="#metodo">O Método</a>
-            <a href="#planos">Serviços e Planos</a>
-            <a href="#sobre">Sobre o Renato</a>
-            <a href="#faq">Perguntas Frequentes</a>
+            {NAV_LINKS.map(({ href, longLabel }) => (
+              <a key={href} href={href}>{longLabel}</a>
+            ))}
           </nav>
         </div>
 
         <div className={styles.contact}>
-          <h4>Atendimento</h4>
+          <h2>Atendimento</h2>
           <p>
-            <Image src={assetPath('/pin_drop_orange.svg')} alt="" width={20} height={20} />
+            <Image src={assetPath('/pin_drop_orange.svg')} alt='' width={20} height={20} />
             Campo Grande e Recreio - RJ
           </p>
           <p>
             <Image
               src={assetPath('/whatsapp.svg')}
-              alt=""
+              alt=''
               width={16}
               height={16}
             />
-            <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer">(21) 99142-5161</a>
+            <a href={buildWhatsAppLink()} target='_blank' rel='noreferrer'>{PHONE.display}</a>
           </p>
           <p>
             <Image
               src={assetPath('/instagram.svg')}
-              alt=""
+              alt=''
               width={16}
               height={16}
             />
-            <a
-              href="https://www.instagram.com/personalrenatolima/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              @personalrenatolima
+            <a href={INSTAGRAM.url} target='_blank' rel='noreferrer'>
+              {INSTAGRAM.handle}
             </a>
           </p>
         </div>

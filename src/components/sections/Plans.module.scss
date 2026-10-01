@@ -15,7 +15,6 @@
   @include section-title-base;
 
   text-align: center;
-  font-size: clamp(2.6rem, 5.2vw, 3rem);
   margin-bottom: $spacing-4;
 }
 
@@ -52,7 +51,6 @@
 .card {
   @include flex(column, flex-start, $gap: $spacing-4);
 
-  flex: 1 1 100%;
   padding: $spacing-7;
   background-color: $color-bg-card;
   border-radius: $border-radius-lg;
@@ -80,8 +78,8 @@
   position: absolute;
   top: -$spacing-3;
   padding: $spacing-1 $spacing-4;
-  background: linear-gradient(90deg, #ea580c, #dc2626);
-  color: #fff;
+  background: $gradient-brand-dark;
+  color: $color-text;
   text-align: center;
   font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
@@ -96,7 +94,7 @@
   right: 0;
   padding: $spacing-1 $spacing-3;
   background: $color-secondary;
-  color: #fff;
+  color: $color-text;
   text-align: center;
   font-size: $font-size-xs;
   font-weight: $font-weight-bold;
@@ -147,7 +145,7 @@
 }
 
 .cardButtonHighlight {
-  background: linear-gradient(90deg, #ea580c, #dc2626);
-  color: #fff;
+  background: $gradient-brand-dark;
+  color: $color-text;
   border-color: transparent;
 }

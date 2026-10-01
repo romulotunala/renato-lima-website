@@ -22,7 +22,7 @@
   @include container;
   @include flex($justify: space-between);
 
-  min-height: 5rem;
+  min-height: $navbar-height;
 }
 
 .brand {
@@ -63,17 +63,17 @@
   }
 }
 
-.cta {
+.links .cta {
   padding: $spacing-2 $spacing-6;
-  color: $color-text !important;
-  background: linear-gradient(to right, $color-secondary, $color-accent-red);
+  color: $color-text;
+  background: $gradient-brand;
   border-radius: $border-radius-full;
-  font-weight: $font-weight-bold !important;
+  font-weight: $font-weight-bold;
   text-transform: uppercase;
   transition: box-shadow $transition-base, transform $transition-base;
 
   &:hover {
-    color: $color-text !important;
+    color: $color-text;
     box-shadow: 0 0 15px rgba($color-secondary, 0.5);
     transform: translateY(-2px);
   }
@@ -128,35 +128,29 @@
   }
 }
 
-.mobileCta {
+.mobileMenuContent .mobileCta {
   margin-top: $spacing-4;
-  color: $color-text !important;
-  background: linear-gradient(to right, $color-secondary, $color-accent-red);
-  border: 0 !important;
+  color: $color-text;
+  background: $gradient-brand;
+  border: 0;
   border-radius: $border-radius-md;
-  font-size: $font-size-sm !important;
-  font-weight: $font-weight-bold !important;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
   text-align: center;
   text-transform: uppercase;
-}
 
-@include respond-to(md) {
-  .mobilePanel {
-    display: none !important;
+  &:hover {
+    color: $color-text;
   }
 }
 
-@media (max-width: #{$bp-md - 1px}) {
+@include respond-below(md) {
   .links {
     display: none;
   }
 
   .mobileBtn {
     display: block;
-  }
-
-  .mobilePanel {
-    display: none;
   }
 
   .mobilePanel.open {
@@ -166,7 +160,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .navbar,
-  .cta,
+  .links .cta,
   .mobilePanel,
   .links a,
   .mobileMenuContent a {

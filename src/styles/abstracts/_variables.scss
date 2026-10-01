@@ -3,20 +3,20 @@
 // =============================================================================
 
 // Cores
-$color-primary: #0070f3;
-$color-primary-dark: #0051cc;
 $color-secondary: #f97316;
+$color-secondary-dark: #ea580c;
 $color-accent-red: #dc2626;
+$color-navy: #0f1724;
 $color-text: #fff;
 $color-text-muted: #a1a1aa;
 $color-bg: #0f0f12;
 $color-bg-card: #18181b;
-$color-bg-alt: #f5f5f5;
 $color-border: #27272a;
 
 // Tipografia
-$font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-$font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+// Famílias carregadas via next/font (layout.tsx) e expostas como CSS custom properties
+$font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+$font-heading: var(--font-heading), system-ui, -apple-system, sans-serif;
 $font-mono: 'Fira Code', 'Courier New', monospace;
 
 $font-size-xs: 0.75rem;     // 12px
@@ -57,15 +57,27 @@ $spacing-16: 4rem;
 $spacing-20: 5rem;
 $spacing-24: 6rem;
 
+// Gradientes da marca
+$gradient-brand: linear-gradient(to right, $color-secondary, $color-accent-red);
+$gradient-brand-diagonal: linear-gradient(135deg, $color-secondary, $color-accent-red);
+$gradient-brand-dark: linear-gradient(to right, $color-secondary-dark, $color-accent-red);
+
 // Layout
 $container-max: 1200px;
 $container-padding: $spacing-6;
+$navbar-height: 5rem;
 
 // Breakpoints
 $bp-sm: 640px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 $bp-xl: 1280px;
+$breakpoints: (
+  sm: $bp-sm,
+  md: $bp-md,
+  lg: $bp-lg,
+  xl: $bp-xl,
+);
 
 // Bordas
 $border-radius-sm: 4px;
