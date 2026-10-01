@@ -46,7 +46,7 @@ jobs:
           for asset in \
             images/logo_renato_white.png \
             images/photo-1534438327276-14e5300c3a48.avif \
-            images/img_renato_lima.png \
+            images/img_renato_lima.webp \
             images/img_renato_aula.jpeg \
             pin_drop_orange.svg \
             event_busy_orange.svg \

@@ -54,10 +54,10 @@ export function About() {
 
         <div className={styles.content}>
           <Image
-            src={assetPath('/images/img_renato_lima.png')}
+            src={assetPath('/images/img_renato_lima.webp')}
             alt="Renato Lima"
             width={520}
-            height={520}
+            height={360}
             className={styles.image}
           />
         </div>
