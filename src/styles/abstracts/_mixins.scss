@@ -62,7 +62,7 @@
 
 /// Focus ring acessível
 @mixin focus-ring {
-  outline: 2px solid $color-primary;
+  outline: 2px solid $color-secondary;
   outline-offset: 2px;
 }
 
