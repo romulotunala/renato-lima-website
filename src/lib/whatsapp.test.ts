@@ -3,6 +3,7 @@ import {
   buildPlanWhatsAppLink,
   buildWhatsAppLink,
   DEFAULT_WHATSAPP_MESSAGE,
+  whatsAppOriginProps,
 } from './whatsapp';
 
 describe('whatsapp helpers', () => {
@@ -28,5 +29,11 @@ describe('whatsapp helpers', () => {
       'Olá, Renato! Vi o plano "Personal Premium Presencial" no site e gostaria de saber mais ' +
       'sobre ele.',
     );
+  });
+
+  it('builds the data attribute that identifies the click origin', () => {
+    expect(whatsAppOriginProps('plano:Storm Evolution')).toEqual({
+      'data-whatsapp-origin': 'plano:Storm Evolution',
+    });
   });
 });

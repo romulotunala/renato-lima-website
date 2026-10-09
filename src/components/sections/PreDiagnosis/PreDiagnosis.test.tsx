@@ -1,3 +1,4 @@
+import { sendGAEvent } from '@next/third-parties/google';
 import { act, render, screen } from '@testing-library/react';
 import userEvent, { type UserEvent } from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -21,6 +22,8 @@ async function clickButton(user: UserEvent, name: string) {
   await settle();
 }
 
+vi.mock('@next/third-parties/google', () => ({ sendGAEvent: vi.fn() }));
+
 describe('PreDiagnosis', () => {
   let user: UserEvent;
 
@@ -31,6 +34,8 @@ describe('PreDiagnosis', () => {
 
   afterEach(() => {
     vi.useRealTimers();
+    vi.unstubAllEnvs();
+    vi.mocked(sendGAEvent).mockClear();
   });
 
   it('advances on tap and recalculates the step counter when the modality changes', async () => {
@@ -136,6 +141,29 @@ describe('PreDiagnosis', () => {
     expect(message).toContain('*Meu nome*: Ana');
     expect(message).toContain('*Interesse indicado*: Storm Evolution');
     expect(message).toContain('*Dor ou limitação*: Coluna');
+    expect(link).toHaveAttribute('data-whatsapp-origin', 'pre-diagnostico');
+  });
+
+  it('tracks the recommended plan when the result step is reached', async () => {
+    vi.stubEnv('NEXT_PUBLIC_GA_ID', 'G-TEST');
+    render(<PreDiagnosis />);
+
+    await choose(user, 'Hipertrofia', 'Personal Presencial Individual');
+    await user.type(screen.getByLabelText('Em qual bairro ou região pretende treinar?'), 'Barra');
+    await choose(user, 'Manhã');
+    await clickButton(user, 'Continuar');
+    await choose(user, 'Às vezes', 'Não', 'Alimentação', 'Nas próximas semanas');
+    await user.type(screen.getByLabelText('Qual é seu primeiro nome?'), 'Bia');
+    expect(sendGAEvent).not.toHaveBeenCalled();
+
+    await clickButton(user, 'Continuar');
+
+    expect(sendGAEvent).toHaveBeenCalledOnce();
+    expect(sendGAEvent).toHaveBeenCalledWith(
+      'event',
+      'pre_diagnostico_resultado',
+      { plano: 'presencial' },
+    );
   });
 
   it('goes back to the first step keeping the answers on "Revisar respostas"', async () => {

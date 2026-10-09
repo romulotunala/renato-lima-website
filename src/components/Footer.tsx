@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
 import { CREF, INSTAGRAM, NAV_LINKS, PHONE } from '@/lib/site';
-import { buildWhatsAppLink } from '@/lib/whatsapp';
+import { buildWhatsAppLink, whatsAppOriginProps } from '@/lib/whatsapp';
 import styles from './Footer.module.scss';
 
 export function Footer() {
@@ -42,7 +42,14 @@ export function Footer() {
               width={16}
               height={16}
             />
-            <a href={buildWhatsAppLink()} target='_blank' rel='noreferrer'>{PHONE.display}</a>
+            <a
+              href={buildWhatsAppLink()}
+              target='_blank'
+              rel='noreferrer'
+              {...whatsAppOriginProps('rodape')}
+            >
+              {PHONE.display}
+            </a>
           </p>
           <p>
             <Image

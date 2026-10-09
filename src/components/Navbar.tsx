@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { assetPath } from '@/lib/assets';
 import { cn } from '@/lib/cn';
 import { NAV_LINKS } from '@/lib/site';
-import { buildWhatsAppLink } from '@/lib/whatsapp';
+import { buildWhatsAppLink, whatsAppOriginProps } from '@/lib/whatsapp';
 import styles from './Navbar.module.scss';
 
 const SCROLL_THRESHOLD = 20;
@@ -70,6 +70,7 @@ export function Navbar() {
             target='_blank'
             rel='noreferrer'
             className={styles.cta}
+            {...whatsAppOriginProps('navbar')}
           >
             Falar com o Personal
           </a>
@@ -102,6 +103,7 @@ export function Navbar() {
             target='_blank'
             rel='noreferrer'
             className={styles.mobileCta}
+            {...whatsAppOriginProps('menu-mobile')}
             onClick={() => setOpen(false)}
           >
             Falar no WhatsApp

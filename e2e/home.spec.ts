@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 
 test.describe('Home page smoke tests', () => {
   test('loads the home page successfully', async ({ page }) => {
@@ -17,5 +17,15 @@ test.describe('Home page smoke tests', () => {
     await page.goto('/');
     const services = page.getByRole('region', { name: 'Dores e problemas comuns' });
     await expect(services).toBeVisible();
+  });
+
+  test('identifies the origin of every WhatsApp link', async ({ page }) => {
+    await page.goto('/');
+    const links = page.locator('a[href^="https://wa.me"]');
+    await expect(links).not.toHaveCount(0);
+
+    for (const link of await links.all()) {
+      await expect(link).toHaveAttribute('data-whatsapp-origin', /.+/);
+    }
   });
 });

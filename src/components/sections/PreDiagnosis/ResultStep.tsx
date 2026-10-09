@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/Button';
 import { buildPreDiagnosisLink } from '@/lib/pre-diagnosis/message';
 import { getResultText, PLAN_RESULTS } from '@/lib/pre-diagnosis/plan-result';
 import type { Answers, PlanId } from '@/lib/pre-diagnosis/types';
+import { whatsAppOriginProps } from '@/lib/whatsapp';
 import styles from './ResultStep.module.scss';
 
 interface ResultStepProps {
@@ -34,6 +35,7 @@ export function ResultStep({ plan, answers, onReview, onRestart }: ResultStepPro
           className={styles.primaryAction}
           target='_blank'
           rel='noreferrer'
+          {...whatsAppOriginProps('pre-diagnostico')}
         >
           {ctaLabel}
         </Button>

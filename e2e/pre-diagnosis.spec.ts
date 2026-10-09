@@ -1,4 +1,5 @@
-import { test, expect, type Locator } from '@playwright/test';
+import type { Locator } from '@playwright/test';
+import { test, expect } from './fixtures';
 
 // As opções ficam desabilitadas por um instante após trocar de tela; o Playwright espera
 // cada uma ficar habilitada antes de clicar.
