@@ -41,8 +41,8 @@ export function Hero() {
           <div className={styles.actions}>
             <Button
               href={buildWhatsAppLink(CTA_MESSAGE)}
+              variant='highlight'
               size='lg'
-              className={styles.primaryAction}
               target='_blank'
               rel='noreferrer'
             >

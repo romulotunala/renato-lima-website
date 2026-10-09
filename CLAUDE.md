@@ -31,8 +31,8 @@ desatualizado gera resultados desatualizados.
 ## Arquitetura
 
 - `src/app/page.tsx` monta a página com os componentes de `src/components/sections/`; a ordem das
-  seções fica ali. A navegação é por âncoras (`#metodo`, `#planos`, `#sobre`, `#faq`), definidas em
-  `NAV_LINKS` em `src/lib/site.ts` — os `id`s das seções precisam bater.
+  seções fica ali. A navegação é por âncoras (`#metodo`, `#planos`, `#pre-diagnostico`, `#sobre`,
+  `#faq`), definidas em `NAV_LINKS` em `src/lib/site.ts` — os `id`s das seções precisam bater.
 - **O conteúdo fica junto do componente.** Listas (planos, FAQ, benefícios) são constantes no topo
   do arquivo da seção, renderizadas com `map`. Só dados usados por mais de um componente vão para
   `src/lib/site.ts` (telefone, CREF, Instagram, links do menu, URL/nome/descrição do site).
@@ -42,8 +42,13 @@ desatualizado gera resultados desatualizados.
   (`src/lib/assets.ts`), que adiciona o base path. A fonte única do base path é `basePath` em
   `next.config.ts`, exposto como `NEXT_PUBLIC_BASE_PATH`. Imagens usam `next/image` com
   `unoptimized: true` (exigido pelo export estático).
-- Componentes são server components por padrão; só os interativos (`Navbar`, `Faq`) usam
-  `'use client'`.
+- Componentes são server components por padrão; só os interativos (`Navbar`, `Faq`,
+  `PreDiagnosis`) usam `'use client'`.
+- **Pré-diagnóstico:** as regras do questionário (perguntas, caminho de telas, plano indicado,
+  mensagem do WhatsApp, reducer de estado) ficam em `src/lib/pre-diagnosis/`, em TypeScript puro
+  e testado; a UI fica em `src/components/sections/PreDiagnosis/`. Para incluir uma pergunta ou
+  opção, edite os dados de `questions.ts`. Telas de escolha única avançam ao toque (o teclado só
+  seleciona) e bloqueiam as opções por `STEP_SETTLE_MS` após a troca de tela, contra toque duplo.
 - `NEXT_PUBLIC_BASE_URL` define a URL usada nos metadados e em `src/app/sitemap.ts`
   (padrão `https://personalrenatolima.com.br`).
 

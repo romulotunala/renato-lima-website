@@ -1,0 +1,19 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.step {
+  @include flex(column, stretch, $gap: $spacing-8);
+}
+
+.fields {
+  @include flex(column, stretch, $gap: $spacing-8);
+
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.actions {
+  @include flex($justify: space-between, $gap: $spacing-4);
+}

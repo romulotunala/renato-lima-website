@@ -14,7 +14,7 @@
   border-radius: $border-radius-md;
   font-weight: $font-weight-medium;
   transition: background-color $transition-fast, color $transition-fast,
-    border-color $transition-fast, box-shadow $transition-fast;
+    border-color $transition-fast, box-shadow $transition-fast, transform $transition-fast;
   cursor: pointer;
   white-space: nowrap;
 
@@ -63,5 +63,21 @@
   &:hover:not(:disabled) {
     background-color: $color-secondary;
     color: $color-text;
+  }
+}
+
+// Destaque das chamadas principais (Hero, resultado do pré-diagnóstico)
+.highlight {
+  background: $gradient-brand-diagonal;
+  color: $color-text;
+  border: 2px solid transparent;
+  box-shadow: 0 0 24px rgba($color-secondary, 0.25);
+  font-weight: $font-weight-extrabold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba($color-secondary, 0.4);
   }
 }

@@ -2,7 +2,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import { cn } from '@/lib/cn';
 import styles from './Button.module.scss';
 
-type ButtonVariant = 'primary' | 'secondary';
+type ButtonVariant = 'primary' | 'secondary' | 'highlight';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 type ButtonAsButton = {
