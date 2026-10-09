@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { Montserrat, Inter } from 'next/font/google';
 import '../styles/globals.scss';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@/components/Analytics';
 import { Navbar } from '@/components/Navbar';
+import { getGaId } from '@/lib/analytics';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site';
 
 const mont = Montserrat({
@@ -50,12 +53,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = getGaId();
+
   return (
     <html lang='pt-BR' className={`${mont.variable} ${inter.variable}`}>
       <body>
         <Navbar />
         <main>{children}</main>
+        {gaId && <Analytics />}
       </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }

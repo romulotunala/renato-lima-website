@@ -37,7 +37,8 @@ desatualizado gera resultados desatualizados.
   do arquivo da seção, renderizadas com `map`. Só dados usados por mais de um componente vão para
   `src/lib/site.ts` (telefone, CREF, Instagram, links do menu, URL/nome/descrição do site).
 - **Links do WhatsApp** sempre são gerados com `buildWhatsAppLink` / `buildPlanWhatsAppLink` de
-  `src/lib/whatsapp.ts`, nunca escritos à mão.
+  `src/lib/whatsapp.ts`, nunca escritos à mão. Todo link do WhatsApp recebe
+  `{...whatsAppOriginProps('<origem>')}` (atributo `data-whatsapp-origin`); o E2E falha se faltar.
 - **Assets estáticos:** arquivos de `public/` são referenciados via `assetPath()`
   (`src/lib/assets.ts`), que adiciona o base path. A fonte única do base path é `basePath` em
   `next.config.ts`, exposto como `NEXT_PUBLIC_BASE_PATH`. Imagens usam `next/image` com
@@ -51,6 +52,13 @@ desatualizado gera resultados desatualizados.
   seleciona) e bloqueiam as opções por `STEP_SETTLE_MS` após a troca de tela, contra toque duplo.
 - `NEXT_PUBLIC_BASE_URL` define a URL usada nos metadados e em `src/app/sitemap.ts`
   (padrão `https://personalrenatolima.com.br`).
+- `NEXT_PUBLIC_GA_ID` liga o Google Analytics 4 (`@next/third-parties/google` em
+  `src/app/layout.tsx`). Sem ela (dev, testes, E2E local) o GA não é carregado nem recebe eventos.
+  No deploy vem da variável de repositório `vars.NEXT_PUBLIC_GA_ID`. Eventos ficam em
+  `src/lib/analytics.ts`: `generate_lead` (`origem`), disparado por um listener delegado
+  (`src/components/Analytics.tsx`) ao clicar em links com `data-whatsapp-origin`, e
+  `pre_diagnostico_resultado` (`plano`), ao chegar no resultado do pré-diagnóstico. O E2E bloqueia
+  as requisições ao Google via `e2e/fixtures.ts` — importe `test`/`expect` de lá nos specs.
 
 ## Estilo
 

@@ -22,6 +22,7 @@ describe('Hero', () => {
       'Olá, Renato! Vim pelo site e gostaria de iniciar minha transformação.',
     );
     expect(primaryCta).toHaveAttribute('target', '_blank');
+    expect(primaryCta).toHaveAttribute('data-whatsapp-origin', 'hero');
 
     expect(screen.getByRole('link', { name: 'Conhecer os planos' })).toHaveAttribute(
       'href',

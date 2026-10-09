@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { trackPreDiagnosisResult } from '@/lib/analytics';
 import { SECTION_ID } from '@/lib/pre-diagnosis/constants';
 import { QuestionStep } from './QuestionStep';
 import { ResultStep } from './ResultStep';
@@ -19,6 +20,12 @@ export function PreDiagnosis() {
     previousStep.current = currentStep;
     panelRef.current?.focus();
   }, [currentStep]);
+
+  // Conta cada chegada à tela de resultado, com o plano indicado
+  const resultPlan = view.kind === 'result' ? view.plan : null;
+  useEffect(() => {
+    if (resultPlan) trackPreDiagnosisResult(resultPlan);
+  }, [resultPlan]);
 
   const panelLabel = view.kind === 'result'
     ? 'Resultado do pré-diagnóstico'

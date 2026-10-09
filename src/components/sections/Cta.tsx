@@ -1,4 +1,4 @@
-import { buildWhatsAppLink } from '@/lib/whatsapp';
+import { buildWhatsAppLink, whatsAppOriginProps } from '@/lib/whatsapp';
 import styles from './Cta.module.scss';
 
 export function Cta() {
@@ -20,6 +20,7 @@ export function Cta() {
             className={styles.button}
             target='_blank'
             rel='noreferrer'
+            {...whatsAppOriginProps('cta')}
           >
             Falar com o Personal Renato
           </a>

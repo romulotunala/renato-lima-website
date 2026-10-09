@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { assetPath } from '@/lib/assets';
-import { buildWhatsAppLink } from '@/lib/whatsapp';
+import { buildWhatsAppLink, whatsAppOriginProps } from '@/lib/whatsapp';
 import styles from './Hero.module.scss';
 
 const CTA_MESSAGE = 'Olá, Renato! Vim pelo site e gostaria de iniciar minha transformação.';
@@ -45,6 +45,7 @@ export function Hero() {
               size='lg'
               target='_blank'
               rel='noreferrer'
+              {...whatsAppOriginProps('hero')}
             >
               Iniciar Transformação
             </Button>

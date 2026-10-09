@@ -1,4 +1,4 @@
-import { buildPlanWhatsAppLink } from '@/lib/whatsapp';
+import { buildPlanWhatsAppLink, whatsAppOriginProps } from '@/lib/whatsapp';
 import { Bullet } from '@/components/Bullet';
 import { cn } from '@/lib/cn';
 import styles from './Plans.module.scss';
@@ -111,6 +111,7 @@ export function Plans() {
                 target='_blank'
                 rel='noreferrer'
                 aria-label={`Consultar plano ${plan.title}`}
+                {...whatsAppOriginProps(`plano:${plan.title}`)}
               >
                 {plan.buttonText}
               </a>
