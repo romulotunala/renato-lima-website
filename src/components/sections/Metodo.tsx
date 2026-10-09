@@ -33,35 +33,37 @@ const PILLARS = [
 export function Metodo() {
   return (
     <section className={styles.metodo} id='metodo' aria-label='O Método'>
-      <div className={styles.content}>
-        <h2 className={styles.title}>
-          Você não recebe um treino. <br/>
-          Você recebe <span className={styles.highlightTitle}>um método completo.</span>
-        </h2>
-        <p className={styles.subtitle}>
-          Seu corpo não responde ao piloto automático. Ele responde ao que é bem planejado,{' '}
-          acompanhado e ajustado no tempo certo. Conheça os pilares do meu acompanhamento:
-        </p>
-        <ul className={styles.list}>
-          {PILLARS.map((pillar) => (
-            <li key={pillar.title}>
-              <Bullet />
-              <span>{pillar.title}</span>
-              <span className={styles.listItemText}>{pillar.description}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <h2 className={styles.title}>
+            Você não recebe um treino. <br/>
+            Você recebe <span className={styles.highlightTitle}>um método completo.</span>
+          </h2>
+          <p className={styles.subtitle}>
+            Seu corpo não responde ao piloto automático. Ele responde ao que é bem planejado,{' '}
+            acompanhado e ajustado no tempo certo. Conheça os pilares do meu acompanhamento:
+          </p>
+          <ul className={styles.list}>
+            {PILLARS.map((pillar) => (
+              <li key={pillar.title}>
+                <Bullet />
+                <span>{pillar.title}</span>
+                <span className={styles.listItemText}>{pillar.description}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className={styles.imageWrap}>
-        <div className={styles.imageGlow} aria-hidden='true' />
-        <Image
-          src={assetPath('/images/img_renato_aula.jpeg')}
-          alt='Pessoa treinando com estratégia'
-          width={720}
-          height={500}
-          className={styles.image}
-        />
+        <div className={styles.media}>
+          <div className={styles.imageGlow} aria-hidden='true' />
+          <Image
+            src={assetPath('/images/img_renato_aula.jpeg')}
+            alt='Pessoa treinando com estratégia'
+            width={720}
+            height={500}
+            className={styles.image}
+          />
+        </div>
       </div>
     </section>
   );

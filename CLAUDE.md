@@ -55,6 +55,12 @@ desatualizado gera resultados desatualizados.
   `src/styles/abstracts/_variables.scss`; mixins (`container`, `respond-to($bp)` mobile-first,
   `respond-below($bp)`) em `_mixins.scss`. Os módulos importam com
   `@use '../../styles/abstracts/variables' as *;` — use os tokens em vez de valores soltos.
+- **Estrutura das seções:** `<section className={styles.<secao>} id=... aria-label=...>`.
+  Sem fundo próprio, a raiz recebe `@include container` e `padding-block: $spacing-24`; com fundo
+  de ponta a ponta (Hero, Método, CTA), a raiz leva o fundo e um filho `.container` leva o mixin.
+  Nomes: `.grid` para layout em colunas, listas pelo conteúdo (`.cardsList`, `.faqList`),
+  `.content` para a coluna de texto e `.media` para a de imagem. `respond-to` fica aninhado na
+  classe.
 
 ## Testes
 

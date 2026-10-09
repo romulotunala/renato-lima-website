@@ -28,7 +28,7 @@ const PAIN_POINTS = [
 
 export function Services() {
   return (
-    <section id='dores' className={styles.services} aria-label='Dores e problemas comuns'>
+    <section className={styles.services} id='dores' aria-label='Dores e problemas comuns'>
       <h2 className={styles.title}>
         Cansado de treinar <br />e{' '}
         <span className={styles.highlightTitle}>não ver resultados?</span>
@@ -36,7 +36,7 @@ export function Services() {
       <p className={styles.subtitle}>
         O problema na maioria das vezes não é a sua falta de esforço. É a falta de estratégia.
       </p>
-      <ul className={styles.grid}>
+      <ul className={styles.cardsList}>
         {PAIN_POINTS.map((painPoint) => (
           <li key={painPoint.title} className={styles.card}>
             <span className={styles.icon} aria-hidden='true'>

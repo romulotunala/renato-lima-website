@@ -2,8 +2,6 @@
 @use '../../styles/abstracts/mixins' as *;
 
 .cta {
-  @include container;
-
   padding-block: $spacing-24;
   position: relative;
   overflow: hidden;
@@ -18,12 +16,18 @@
   clip-path: polygon(0 100%, 100% 0, 100% 100%);
 }
 
-.content {
-  max-width: $bp-md;
-  margin: 0 auto;
+.container {
+  @include container;
+
   position: relative;
   z-index: 1;
+}
+
+.content {
   @include flex(column, $justify: center, $gap: $spacing-6);
+
+  max-width: $bp-md;
+  margin: 0 auto;
 }
 
 .title {
