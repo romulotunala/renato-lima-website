@@ -24,6 +24,7 @@ export interface NavLink {
 export const NAV_LINKS: readonly NavLink[] = [
   { href: '#metodo', label: 'O Método', longLabel: 'O Método' },
   { href: '#planos', label: 'Serviços', longLabel: 'Serviços e Planos' },
+  { href: '#pre-diagnostico', label: 'Pré-Diagnóstico', longLabel: 'Pré-diagnóstico' },
   { href: '#sobre', label: 'Sobre', longLabel: 'Sobre o Renato' },
   { href: '#faq', label: 'FAQ', longLabel: 'Perguntas Frequentes' },
 ];

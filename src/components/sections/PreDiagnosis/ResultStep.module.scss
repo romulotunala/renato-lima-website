@@ -1,0 +1,72 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.result {
+  @include flex(column, stretch, $gap: $spacing-8);
+}
+
+.card {
+  @include flex(column, flex-start, $gap: $spacing-3);
+
+  padding: $spacing-6;
+  background: $color-bg;
+  border: 1px solid $color-secondary;
+  border-radius: $border-radius-lg;
+}
+
+.badge {
+  padding: $spacing-1 $spacing-4;
+  background: $gradient-brand-dark;
+  color: $color-text;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  border-radius: $border-radius-full;
+}
+
+.planTitle {
+  margin: 0;
+  font-family: $font-heading;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-extrabold;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.text {
+  margin: 0;
+  line-height: $line-height-base;
+}
+
+.notice {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  line-height: $line-height-base;
+}
+
+.actions {
+  @include flex(column, stretch, $gap: $spacing-4);
+}
+
+.secondaryActions {
+  @include grid(1, $spacing-4);
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Rótulos longos: quebra de linha e tamanho mais contido no mobile.
+// Aninhado em .actions para vencer a classe de tamanho do Button sem depender da ordem do CSS.
+.actions .primaryAction {
+  padding: $spacing-3 $spacing-4;
+  white-space: normal;
+  text-align: center;
+  font-size: $font-size-sm;
+
+  @include respond-to(sm) {
+    padding: $spacing-3 $spacing-8;
+    font-size: $font-size-lg;
+  }
+}

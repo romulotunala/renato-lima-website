@@ -1,0 +1,30 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.progress {
+  @include flex(column, stretch, $gap: $spacing-2);
+}
+
+.counter {
+  margin: 0;
+  color: $color-secondary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.track {
+  height: $spacing-1;
+  overflow: hidden;
+  background: $color-border;
+  border-radius: $border-radius-full;
+}
+
+.bar {
+  display: block;
+  height: 100%;
+  background: $gradient-brand;
+  border-radius: inherit;
+  transition: width $transition-base;
+}

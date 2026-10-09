@@ -144,7 +144,8 @@
   }
 }
 
-@include respond-below(md) {
+// Com cinco links o menu completo só cabe a partir de lg
+@include respond-below(lg) {
   .links {
     display: none;
   }

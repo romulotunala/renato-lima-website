@@ -1,0 +1,111 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.field {
+  @include flex(column, stretch, $gap: $spacing-4);
+
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.label {
+  padding: 0;
+  margin: 0;
+  color: $color-text;
+  font-family: $font-heading;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+
+  @include respond-to(md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.options {
+  @include grid(1, $spacing-3);
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.option {
+  @include flex($gap: $spacing-3);
+
+  width: 100%;
+  padding: $spacing-4;
+  color: $color-text;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  font: inherit;
+  font-size: $font-size-sm;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    border-color: $color-secondary;
+    color: $color-secondary;
+  }
+
+  &:focus-visible,
+  &:has(:focus-visible) {
+    @include focus-ring;
+  }
+
+  &:has(:disabled) {
+    cursor: default;
+  }
+}
+
+.optionSelected {
+  background: $gradient-brand-dark;
+  border-color: transparent;
+
+  &:hover {
+    border-color: transparent;
+    color: $color-text;
+  }
+}
+
+.control {
+  flex-shrink: 0;
+  width: $spacing-4;
+  height: $spacing-4;
+  margin: 0;
+  accent-color: $color-navy;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  color: $color-text;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  font: inherit;
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-secondary;
+    outline: none;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.help {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}

@@ -1,0 +1,48 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.preDiagnosis {
+  @include container;
+
+  padding-block: $spacing-24;
+}
+
+.title {
+  @include section-title-base;
+
+  text-align: center;
+}
+
+.highlightTitle {
+  @include section-title-highlight-base;
+}
+
+.subtitle {
+  @include section-subtitle-base;
+
+  max-width: $bp-sm;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.panel {
+  max-width: $bp-md;
+  margin-inline: auto;
+  padding: $spacing-6;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  scroll-margin-top: $navbar-height;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  @include respond-to(md) {
+    padding: $spacing-10;
+  }
+}
