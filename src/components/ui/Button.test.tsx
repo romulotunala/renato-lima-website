@@ -22,6 +22,11 @@ describe('Button', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toHaveAttribute('href', '#test');
   });
 
+  it('applies the highlight variant class', () => {
+    render(<Button variant='highlight'>Destaque</Button>);
+    expect(screen.getByRole('button')).toHaveClass('button', 'highlight', 'md');
+  });
+
   it('is disabled when disabled=true', () => {
     render(<Button disabled>Desabilitado</Button>);
     expect(screen.getByRole('button')).toBeDisabled();

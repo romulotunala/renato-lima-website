@@ -127,22 +127,6 @@
   }
 }
 
-.primaryAction {
-  border: 1px solid transparent;
-  border-radius: $border-radius-md;
-  background: $gradient-brand-diagonal;
-  color: $color-text;
-  box-shadow: 0 0 24px rgba($color-secondary, 0.25);
-  font-weight: $font-weight-extrabold;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  &:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba($color-secondary, 0.4);
-  }
-}
-
 .secondaryAction {
   border: 1px solid rgba($color-text-muted, 0.6);
   border-radius: $border-radius-md;
