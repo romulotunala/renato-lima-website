@@ -36,9 +36,9 @@ const BENEFITS = [
 
 export function About() {
   return (
-    <section id='sobre' className={styles.about} aria-label='Sobre Renato Lima'>
-      <div className={styles.container}>
-        <div className={styles.content}>
+    <section className={styles.about} id='sobre' aria-label='Sobre Renato Lima'>
+      <div className={styles.grid}>
+        <div>
           <h2 className={styles.title}>
             <span className={styles.highlightTitle}>Muito prazer, sou</span> <br/> Renato Lima
           </h2>
@@ -53,7 +53,7 @@ export function About() {
           </p>
         </div>
 
-        <div className={styles.content}>
+        <div className={styles.media}>
           <Image
             src={assetPath('/images/img_renato_lima.webp')}
             alt='Renato Lima'
@@ -64,7 +64,7 @@ export function About() {
         </div>
       </div>
       <div className={styles.benefits}>
-        <h3 className={styles.title}>
+        <h3 className={styles.benefitsTitle}>
           Um ecossistema completo
         </h3>
         <ul className={styles.benefitsList}>

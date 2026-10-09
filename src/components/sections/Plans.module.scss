@@ -2,13 +2,9 @@
 @use '../../styles/abstracts/mixins' as *;
 
 .plans {
-  padding-block: $spacing-24;
-}
+  @include container;
 
-.container {
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: 0 1rem;
+  padding-block: $spacing-24;
 }
 
 .title {
@@ -34,16 +30,12 @@
   list-style: none;
   padding: 0;
   margin: 0;
-}
 
-@include respond-to(md) {
-  .cardsList {
+  @include respond-to(md) {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@include respond-to(lg) {
-  .cardsList {
+  @include respond-to(lg) {
     grid-template-columns: repeat(4, 1fr);
   }
 }

@@ -2,17 +2,16 @@
 @use '../../styles/abstracts/mixins' as *;
 
 .metodo {
-  @include container;
-
   padding-block: $spacing-24;
   background: linear-gradient(135deg, $color-bg 0%, $color-bg-card 100%);
   overflow: hidden;
   position: relative;
   z-index: 10;
+}
 
-  @include flex(column, flex-start, $gap: $spacing-12);
-
-  align-items: center;
+.container {
+  @include container;
+  @include flex(column, center, $gap: $spacing-12);
 
   @include respond-to(lg) {
     flex-direction: row;
@@ -69,7 +68,7 @@
   font-weight: $font-weight-regular;
 }
 
-.imageWrap {
+.media {
   position: relative;
   display: flex;
   align-items: center;
